@@ -1,0 +1,99 @@
+# ================================================================
+#  BAUER HAUSTECHNIK — JTL-Shop 5 · bauer_custom template
+#  Whitelist approach: ignore everything, un-ignore what we need
+# ================================================================
+
+# ── Ignore everything at root ───────────────────────────────────
+/*
+
+# ── Project meta (keep) ─────────────────────────────────────────
+!.gitignore
+!.env.example
+!.htaccess
+!docker-compose.yml
+!Makefile
+!dev-notes.md
+!README.md
+!CONTRIBUTING.md
+!LICENSE.md
+
+# ── Docker local-dev config (keep) ──────────────────────────────
+!.docker/
+
+# ── Templates: keep ONLY bauer_custom ───────────────────────────
+!templates/
+templates/*
+!templates/bauer_custom/
+
+# ================================================================
+#  ALWAYS EXCLUDED — never commit these
+# ================================================================
+
+# Secrets / credentials
+.env
+*.env
+config/secret.php
+includes/config.JTL-Shop.ini.php
+
+# Compiled Smarty templates (auto-generated, never commit)
+templates_c/
+templates_c+/
+
+# JTL cache
+cache/
+jtllogs/
+
+# Uploaded / generated media (too large, client-specific)
+uploads/
+media/
+bilder/
+downloads/
+mediafiles/
+export/
+dbeS/
+gfx/
+frontassets/
+update/
+install/
+plugins/
+
+# Database dumps (sensitive + large)
+*.sql
+*.sql.gz
+*.dump
+
+# Archives left in the project root
+*.zip
+*.tar.gz
+*.tar
+*.gz
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Linux
+*~
+
+# IDEs
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+
+# Node (if tooling is added later)
+node_modules/
+npm-debug.log*
+yarn-error.log*
+
+# PHP
+*.log

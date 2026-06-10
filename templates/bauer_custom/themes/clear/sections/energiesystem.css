@@ -1,0 +1,86 @@
+/* ============================================================
+   ENERGIESYSTEM SECTION
+   "Wählen Sie Ihr Energiesystem"
+   Figma: Frame 50 — 6 cards × 180×180px, diagonal stripe bg
+   ============================================================ */
+
+.bauer-energiesystem {
+    background: var(--bauer-bg-body);
+    padding: 60px 120px;
+}
+
+.bauer-energiesystem-inner {
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.bauer-energiesystem-heading {
+    font-family: var(--bauer-font-heading);
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--bauer-white);
+    margin: 0;
+}
+
+/* Cards row — 6 equal cards, 24px gap */
+.bauer-energiesystem-cards {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    align-items: stretch;
+}
+
+/* Single card — 180×180px, diagonal stripe bg texture */
+.bauer-energie-card {
+    flex: 1;
+    min-width: 0;
+    height: 180px;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 10px;
+    text-decoration: none !important;
+    background: var(--bauer-bg-surface);
+    transition: background-color 0.2s;
+}
+
+.bauer-energie-card:hover {
+    background: #2A2A2A;
+    text-decoration: none !important;
+}
+
+/* Title: M12, M18, MX FUEL … — 32px Bold red */
+.bauer-energie-card-title {
+    font-family: var(--bauer-font-heading);
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 30px;
+    color: var(--bauer-red);
+    text-align: center;
+    letter-spacing: 0;
+    position: relative;
+    z-index: 1;
+    text-transform: none;
+}
+
+/* Subtitle: M12 Kompaktsystem … — 14px Regular white */
+.bauer-energie-card-subtitle {
+    font-family: var(--bauer-font-heading);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1;
+    color: var(--bauer-white);
+    text-align: center;
+    letter-spacing: 0;
+    position: relative;
+    z-index: 1;
+    text-transform: none;
+}

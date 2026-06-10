@@ -1,0 +1,85 @@
+/* ============================================================
+   CATEGORY ICONS SECTION
+   "Direkt zu Ihren Werkzeugen"
+   Figma: Frame 21 — 1200×238px, 120px side margins, 20px gap
+   ============================================================ */
+
+.bauer-categories {
+    background: var(--bauer-bg-body);
+    padding: 48px 120px;
+}
+
+.bauer-categories-inner {
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Section heading — DIN Next LT Pro, 32px Bold, white */
+.bauer-categories-heading {
+    font-family: var(--bauer-font-heading);
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--bauer-white);
+    letter-spacing: 0;
+    margin: 0;
+}
+
+/* Cards row — 6 cards, 24px gap */
+.bauer-categories-grid {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    flex-wrap: nowrap;
+}
+
+/* Individual card — 180×180px, #1E1E1E, 10px radius */
+.bauer-cat-card {
+    flex: 0 0 180px;
+    width: 180px !important;
+    height: 180px !important;
+    border-radius: 10px;
+    background-color: #1E1E1E !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start;
+    padding-top: 32px !important;
+    padding-bottom: 15px !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    gap: 27px;
+    text-decoration: none !important;
+    transition: background-color 0.2s;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.bauer-cat-card:hover {
+    background-color: #2A2A2A !important;
+    text-decoration: none !important;
+    color: var(--bauer-white);
+}
+
+/* Icon — 87×87px (dark circle + red icon from Figma export) */
+.bauer-cat-icon {
+    width: 87px !important;
+    height: 87px !important;
+    min-width: 87px;
+    min-height: 87px;
+    display: block !important;
+    flex-shrink: 0;
+}
+
+/* Label — DIN Next LT Pro, 16px Bold, white, centered */
+.bauer-cat-label {
+    font-family: var(--bauer-font-heading);
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--bauer-white);
+    text-align: center;
+    letter-spacing: 0;
+}

@@ -1,0 +1,114 @@
+/* ============================================================
+   LOESUNGEN SECTION
+   "Fertige Lösungen für Ihre tägliche Arbeit"
+   Figma: 2×2 grid, 587×290px cards, image left / text right
+   ============================================================ */
+
+.bauer-loesungen {
+    background: var(--bauer-bg-body);
+    padding: 60px 120px;
+}
+
+.bauer-loesungen-inner {
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* Section heading */
+.bauer-loesungen-heading {
+    font-family: var(--bauer-font-heading);
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--bauer-white);
+    margin: 0;
+}
+
+/* 2×2 grid — 2 columns, 24px gap, each row 24px gap */
+.bauer-loesungen-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+/* Single card — horizontal layout: image left (290px), text right */
+.bauer-loesung-card {
+    display: flex;
+    flex-direction: row;
+    border-radius: 10px;
+    overflow: hidden;
+    background: var(--bauer-bg-surface);
+    min-height: 290px;
+    text-decoration: none !important;
+    transition: background-color 0.2s;
+}
+
+.bauer-loesung-card:hover {
+    background: #242424;
+    text-decoration: none !important;
+}
+
+/* Image — 290px wide, full height, square crop */
+.bauer-loesung-card-image {
+    flex: 0 0 290px;
+    width: 290px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.bauer-loesung-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Text content — fills remaining 297px, padded 28px all sides */
+.bauer-loesung-card-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 28px;
+    min-width: 0;
+}
+
+/* Card title — 22px Bold, line-height 28px */
+.bauer-loesung-card-title {
+    font-family: var(--bauer-font-heading);
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 28px;
+    color: var(--bauer-white);
+    margin: 0 0 12px 0;
+    text-transform: none;
+}
+
+/* Description — 16px Regular, grey */
+.bauer-loesung-card-desc {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--bauer-text-secondary);
+    margin: 0;
+    flex: 1;
+}
+
+/* "Entdecken Sie die Lösung →" — pinned to bottom of text area */
+.bauer-loesung-card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-family: var(--bauer-font-heading);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1;
+    color: var(--bauer-red);
+    text-decoration: none;
+    margin-top: 20px;
+}
+
+.bauer-loesung-card:hover .bauer-loesung-card-link {
+    color: var(--bauer-red-hover);
+}

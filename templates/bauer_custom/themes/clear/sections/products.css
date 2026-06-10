@@ -1,0 +1,184 @@
+/* ============================================================
+   PRODUCT SLIDER SECTION
+   "Schnell verfügbare Werkzeuge"
+   ============================================================ */
+
+.bauer-products {
+    background: var(--bauer-bg-body);
+    padding: 60px 120px;
+}
+
+.bauer-products-inner {
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.bauer-products-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.bauer-products-heading {
+    font-family: var(--bauer-font-heading);
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--bauer-white);
+    margin: 0;
+}
+
+.bauer-products-viewall {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--bauer-font-heading);
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--bauer-red);
+    text-decoration: underline;
+}
+
+.bauer-products-viewall:hover {
+    color: var(--bauer-red-hover);
+    text-decoration: underline;
+}
+
+/* Cards row — horizontal scroll on overflow */
+.bauer-product-cards {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    scrollbar-width: none;
+}
+
+.bauer-product-cards::-webkit-scrollbar {
+    display: none;
+}
+
+/* Single card — 282px wide */
+.bauer-product-card {
+    flex: 0 0 282px;
+    width: 282px;
+    border-radius: 9px;
+    overflow: hidden;
+    background: var(--bauer-bg-surface);
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+}
+
+/* Image area: dark bg, 210px height */
+.bauer-product-card-image {
+    width: 100%;
+    height: 210px;
+    background: var(--bauer-bg-surface-2);
+    flex-shrink: 0;
+}
+
+/* Card body */
+.bauer-product-card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px;
+    flex: 1;
+}
+
+/* "Auf Lager" badge */
+.bauer-product-badge {
+    display: inline-flex;
+    align-items: center;
+    align-self: flex-start;
+    padding: 3px 8px;
+    border-radius: 4px;
+    background: var(--bauer-green-30);
+    font-family: var(--bauer-font-heading);
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.4;
+    color: var(--bauer-green);
+}
+
+/* Product title */
+.bauer-product-title {
+    font-family: var(--bauer-font-heading);
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--bauer-white);
+    text-decoration: none;
+    display: block;
+}
+
+.bauer-product-title:hover {
+    color: var(--bauer-text-secondary);
+    text-decoration: none;
+}
+
+/* Short description */
+.bauer-product-desc {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.4;
+    color: var(--bauer-text-secondary);
+    margin: 0;
+}
+
+/* Price row — price + "inkl. MwSt." inline, pushed to bottom */
+.bauer-product-price-wrap {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    gap: 6px;
+    flex-wrap: nowrap;
+    margin-top: auto;
+}
+
+.bauer-product-price {
+    font-family: var(--bauer-font-heading);
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--bauer-white);
+}
+
+.bauer-product-vat {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--bauer-text-secondary);
+    line-height: 1;
+}
+
+/* "In den Warenkorb" button */
+.bauer-product-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    height: 41px;
+    padding: 11px 26px 9px;
+    border-radius: 3.5px;
+    background: var(--bauer-red);
+    color: var(--bauer-white) !important;
+    font-family: var(--bauer-font-heading);
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1;
+    border: none;
+    cursor: pointer;
+    text-decoration: none !important;
+    transition: background-color 0.15s;
+    box-sizing: border-box;
+}
+
+.bauer-product-btn:hover {
+    background: var(--bauer-red-hover);
+    color: var(--bauer-white) !important;
+    text-decoration: none !important;
+}

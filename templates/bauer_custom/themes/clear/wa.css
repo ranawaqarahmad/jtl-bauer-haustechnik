@@ -1,0 +1,1011 @@
+/* ============================================================
+   BAUER HAUSTECHNIK — CUSTOM STYLESHEET
+   Template : bauer_custom (child of TECHNIK / SALEPIX)
+   Figma    : https://www.figma.com/design/gTrQPn5Th5RIxvYzxyO3tm/Bauer-Haustechnik
+   Rule     : NEVER edit TECHNIK/ or SALEPIX/ parent files.
+              All overrides go here only.
+
+   HTML sections live in: page/sections/*.tpl
+   CSS sections live in:  themes/clear/sections/*.css  (edit there, copy here)
+   ============================================================ */
+
+
+/* ============================================================
+   1. DESIGN TOKENS
+   ============================================================ */
+:root {
+
+    /* --- Brand colors --- */
+    --bauer-red:              #E2112F;
+    --bauer-red-hover:        #C40D26;
+    --bauer-red-10:           rgba(226, 17, 47, 0.10);
+    --bauer-red-15:           rgba(226, 17, 47, 0.15);
+    --bauer-green:            #10B981;
+    --bauer-green-30:         rgba(16, 185, 129, 0.30);
+    --bauer-white:            #FFFFFF;
+    --bauer-black:            #000000;
+
+    /* --- Background surfaces (dark theme) --- */
+    --bauer-bg-body:          #121212;
+    --bauer-bg-surface:       #1E1E1E;
+    --bauer-bg-surface-2:     #0F0F10;
+    --bauer-bg-surface-3:     #0A0A0A;
+
+    /* --- Borders --- */
+    --bauer-border:           #242424;
+    --bauer-border-subtle:    #151515;
+
+    /* --- Typography --- */
+    --bauer-text-primary:     #FFFFFF;
+    --bauer-text-secondary:   #A0A0A0;
+    --bauer-font-heading:     'DIN Next LT Pro', 'Roboto Condensed', 'Arial Narrow', Arial, sans-serif;
+    --bauer-font-body:        'Open Sans', 'Manrope', Arial, sans-serif;
+
+    /* --- Layout --- */
+    --bauer-container-max:    1440px;
+    --bauer-radius-sm:        4px;
+    --bauer-radius-md:        8px;
+    --bauer-radius-lg:        12px;
+
+    /* -------------------------------------------------------
+       Override SALEPIX / TECHNIK CSS custom properties
+    ------------------------------------------------------- */
+    --slpx-color-primary:              #E2112F;
+    --slpx-color-base-background:      #121212;
+    --slpx-color-base-text:            #FFFFFF;
+    --slpx-color-surface:              #1E1E1E;
+    --slpx-color-border:               #242424;
+    --slpx-footer-background:          #0F0F10;
+    --slpx-footer-background-contrast: #FFFFFF;
+    --slpx-footer-links:               #A0A0A0;
+    --slpx-mid-gray:                   #A0A0A0;
+    --slpx-max-width:                  1440px;
+
+    --slpx-header-background:          #121212;
+    --slpx-header-background-contrast: #FFFFFF;
+    --slpx-header-text:                #FFFFFF;
+    --slpx-header-border:              #242424;
+
+    --slpx-navbar-background:                  #1E1E1E;
+    --slpx-mainmenu-background:                #1E1E1E;
+    --slpx-mainmenu-background-contrast:       #FFFFFF;
+    --slpx-mainmenu-color:                     #A0A0A0;
+    --slpx-mainmenu-color-hover:               #FFFFFF;
+    --slpx-mainmenu-font-weight:               400;
+    --slpx-mainmenu-font-size:                 16px;
+    --slpx-mainmenu-font-text-transform:       none;
+    --slpx-mainmenu-item-border:               transparent;
+    --slpx-mainmenu-item-hover-background:     transparent;
+}
+
+
+/* ============================================================
+   2. FONT: DIN Next LT Pro
+   Drop font files into: templates/bauer_custom/fonts/
+   then uncomment these blocks.
+   ============================================================ */
+/*
+@font-face {
+    font-family: 'DIN Next LT Pro';
+    src: url('../../fonts/DINNextLTPro-Regular.woff2') format('woff2'),
+         url('../../fonts/DINNextLTPro-Regular.woff')  format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'DIN Next LT Pro';
+    src: url('../../fonts/DINNextLTPro-Bold.woff2') format('woff2'),
+         url('../../fonts/DINNextLTPro-Bold.woff')  format('woff');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+*/
+
+
+/* ============================================================
+   3. BASE / RESET
+   ============================================================ */
+
+body {
+    background-color: var(--bauer-bg-body) !important;
+    color: var(--bauer-text-primary);
+    font-family: var(--bauer-font-body);
+}
+
+.container,
+.container-fluid,
+.slpx-wrapper > .container,
+.slpx-wrapper > .container-fluid {
+    max-width: var(--bauer-container-max);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (min-width: 1024px) {
+    .slpx-wrapper,
+    main.slpx-wrapper,
+    div.slpx-wrapper,
+    #main-wrapper.slpx-wrapper {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+}
+
+#main-wrapper {
+    background: transparent;
+    flex: 1;
+}
+
+body[data-page="18"] {
+    background: var(--bauer-bg-body);
+}
+
+a {
+    color: var(--bauer-text-primary);
+}
+a:hover {
+    color: var(--bauer-red);
+}
+
+
+/* ============================================================
+   4. HEADER
+   ============================================================ */
+
+/* 4.1 TOP BAR */
+.wa-topbar {
+    background-color: var(--bauer-red) !important;
+}
+.wa-topbar .navbar,
+.wa-topbar .navbar-top {
+    background-color: var(--bauer-red) !important;
+    min-height: 21px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+.wa-topbar .navbar-none > .slpx-fit-content,
+.wa-topbar .wa-custom-topbar {
+    display: none !important;
+}
+.wa-topbar .position-relative.text-center,
+.wa-topbar .slpx-navbar-nav {
+    flex-grow: 1;
+    text-align: center;
+}
+.wa-topbar .slpx-slider-usp,
+.wa-topbar .slpx-slider-usp * {
+    color: var(--bauer-white) !important;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 14px;
+}
+
+/* 4.2 MAIN HEADER ROW */
+.wa-topbar-upper { display: none; }
+
+.header-bg,
+.wa-header-main,
+.wa-header-main .header,
+header.header,
+.header-bg header {
+    background-color: var(--bauer-bg-body) !important;
+}
+.header-bg {
+    border-bottom: none;
+}
+.wa-header-main .container,
+header.header .container,
+.header-bg .container,
+.header-bg .container-fluid {
+    background-color: transparent !important;
+}
+.header-inner {
+    height: 80px;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    align-items: center;
+}
+.header-logo { flex: 0 0 auto; }
+.bauer-logo-link { display: block; line-height: 0; }
+.bauer-logo {
+    height: 37px;
+    width: auto;
+    display: block;
+}
+.slpx-search-form { flex-grow: 1; }
+.slpx-search-form .input-group {
+    height: 44px;
+    border-radius: var(--bauer-radius-sm);
+    overflow: hidden;
+    background-color: #242424;
+    border: none;
+    gap: 0;
+}
+.slpx-search-form input[type="search"],
+.slpx-search-form input[type="text"],
+.slpx-search-form .form-control {
+    background-color: #242424 !important;
+    border: none !important;
+    color: var(--bauer-text-primary) !important;
+    box-shadow: none !important;
+    padding-left: 12px;
+    font-size: 14px;
+    height: 44px;
+    line-height: 44px;
+}
+.slpx-search-form .form-control::placeholder {
+    color: var(--bauer-text-secondary);
+    font-size: 14px;
+}
+.slpx-search-form .btn,
+.slpx-search-form button[type="submit"],
+.slpx-search-form-btn {
+    background-color: var(--bauer-red) !important;
+    border-color: var(--bauer-red) !important;
+    color: var(--bauer-white) !important;
+    border-radius: 0 !important;
+    min-width: 120px;
+    height: 44px;
+    padding: 0 20px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+.slpx-search-form .btn:hover,
+.slpx-search-form button[type="submit"]:hover {
+    background-color: var(--bauer-red-hover) !important;
+    border-color: var(--bauer-red-hover) !important;
+}
+.wa-private-b2b {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.wa-pb-row {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    border-radius: var(--bauer-radius-sm);
+    overflow: hidden;
+    border: 1px solid var(--bauer-red);
+}
+.wa-pb-col.private-active,
+.wa-pb-col.b2b-active {
+    background-color: var(--bauer-red);
+    color: var(--bauer-white);
+    border: none;
+    padding: 7px 18px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1;
+    cursor: pointer;
+    white-space: nowrap;
+}
+.wa-pb-col:not(.private-active):not(.b2b-active) {
+    background: transparent;
+    color: var(--bauer-white);
+    border: none;
+    padding: 7px 18px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.15s, color 0.15s;
+}
+.wa-pb-col:not(.private-active):not(.b2b-active):hover {
+    background-color: var(--bauer-red-10);
+    color: var(--bauer-white);
+}
+.header-inner-item5,
+.header-inner-item6.order-5,
+.header-inner-item4:not(.custom-header-inner-item) {
+    display: none !important;
+}
+.wa-custom-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+.wa-konto .slpx-shop-btn,
+.wa-warenkorn .slpx-shop-btn,
+.slpx-shop-btn {
+    color: var(--bauer-white) !important;
+    padding: 0;
+}
+.slpx-shop-btn svg path {
+    stroke: var(--bauer-white);
+    fill: none;
+}
+.slpx-shop-btn:hover {
+    color: var(--bauer-red) !important;
+}
+.slpx-shop-btn:hover svg path {
+    stroke: var(--bauer-red);
+}
+.slpx-shop-btn .nav-shop-item-label,
+.wa-konto .nav-shop-item-label {
+    display: none !important;
+}
+.bauer-icon {
+    display: block;
+    width: 24px;
+    height: 24px;
+    transition: opacity 0.15s;
+}
+.slpx-shop-btn:hover .bauer-icon {
+    opacity: 0.7;
+}
+.slpx-shop-btn .badge,
+.slpx-shop-btn .cart-amount {
+    background-color: var(--bauer-red);
+    color: var(--bauer-white);
+    font-size: 10px;
+    min-width: 16px;
+    height: 16px;
+}
+
+/* 4.3 NAVIGATION BAR */
+.mainnavigation-styling {
+    background-color: var(--bauer-bg-surface);
+    border-top: 1px solid var(--bauer-border);
+    border-bottom: 1px solid var(--bauer-border);
+}
+#mainNavigation {
+    background-color: var(--bauer-bg-surface) !important;
+    border: none;
+}
+#mainNavigation .container {
+    padding-left: 120px !important;
+    padding-right: 120px !important;
+}
+#mainNavigation .navbar {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: var(--bauer-bg-surface);
+    flex-wrap: nowrap;
+}
+.slpx-navbar-link,
+#mainNavigation .nav-link,
+#mainNavigation .slpx-navbar-link {
+    color: var(--bauer-text-secondary) !important;
+    font-family: var(--bauer-font-heading);
+    font-size: 16px !important;
+    font-weight: 400 !important;
+    line-height: 22.5px;
+    letter-spacing: 0;
+    text-transform: none !important;
+    text-decoration: none;
+    transition: color 0.15s;
+    height: auto;
+    padding: 0 20px;
+}
+.slpx-navbar-link:hover,
+#mainNavigation .nav-link:hover,
+#mainNavigation .nav-link.active,
+#mainNavigation .slpx-navbar-item.active > .slpx-navbar-link {
+    color: var(--bauer-white) !important;
+}
+.slpx-slider-navigation-main-wrapper::before {
+    content: "Kategorien:";
+    font-family: var(--bauer-font-heading);
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--bauer-text-secondary);
+    white-space: nowrap;
+    padding: 0 8px 0 0;
+    flex-shrink: 0;
+    line-height: 22.5px;
+    display: flex;
+    align-items: center;
+}
+.wa-megamenu-text { display: none !important; }
+#mainNavigation .slpx-fit-content:last-child { display: none !important; }
+
+
+/* ============================================================
+   5. HERO SECTION  (page/sections/hero.tpl)
+   ============================================================ */
+
+.bauer-hero {
+    position: relative;
+    width: 100%;
+    min-height: 747px;
+    background-color: var(--bauer-bg-body);
+    background-position: center right;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+.bauer-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        rgba(10, 10, 10, 0.95) 0%,
+        rgba(10, 10, 10, 0.88) 22%,
+        rgba(10, 10, 10, 0.55) 50%,
+        rgba(10, 10, 10, 0.10) 72%,
+        transparent 88%
+    );
+    pointer-events: none;
+}
+.bauer-hero-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 87px;
+    max-width: 694px;
+}
+.bauer-hero-badge {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid var(--bauer-red);
+    border-radius: 40px;
+    padding: 7px 13px 5px 13px;
+    font-family: var(--bauer-font-heading);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1;
+    color: var(--bauer-white);
+    white-space: nowrap;
+    margin-bottom: 20px;
+}
+.bauer-hero-headline {
+    font-family: var(--bauer-font-heading);
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 52.5px;
+    color: var(--bauer-white);
+    letter-spacing: 0;
+    margin: 0 0 18px 0;
+    max-width: 607px;
+}
+.bauer-hero-headline-red {
+    display: block;
+    color: var(--bauer-red);
+}
+.bauer-hero-subtext {
+    font-family: var(--bauer-font-heading);
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1;
+    color: var(--bauer-white);
+    letter-spacing: 0;
+    margin: 0 0 28px 0;
+    max-width: 607px;
+}
+.bauer-hero-cta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+.bauer-hero-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    height: 44px;
+    padding: 12px 30px 10px 30px;
+    border-radius: var(--bauer-radius-sm);
+    font-family: var(--bauer-font-heading);
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1;
+    color: var(--bauer-white);
+    text-decoration: none;
+    white-space: nowrap;
+    border: none;
+    transition: background-color 0.15s, opacity 0.15s;
+    cursor: pointer;
+}
+.bauer-hero-btn:hover,
+.bauer-hero-btn:focus {
+    color: var(--bauer-white);
+    text-decoration: none;
+}
+.bauer-hero-btn-primary { background-color: var(--bauer-red); }
+.bauer-hero-btn-primary:hover { background-color: var(--bauer-red-hover); }
+.bauer-hero-btn-dark { background-color: var(--bauer-bg-body); }
+.bauer-hero-btn-dark:hover { background-color: var(--bauer-bg-surface); color: var(--bauer-white); }
+
+
+/* ============================================================
+   6. CATEGORY ICONS SECTION  (page/sections/categories.tpl)
+   ============================================================ */
+
+.bauer-categories {
+    background: var(--bauer-bg-body);
+    padding: 48px 120px;
+}
+.bauer-categories-inner {
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.bauer-categories-heading {
+    font-family: var(--bauer-font-heading);
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--bauer-white);
+    letter-spacing: 0;
+    margin: 0;
+}
+.bauer-categories-grid {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    flex-wrap: nowrap;
+}
+.bauer-cat-card {
+    flex: 0 0 180px;
+    width: 180px !important;
+    height: 180px !important;
+    border-radius: 10px;
+    background-color: #1E1E1E !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start;
+    padding-top: 32px !important;
+    padding-bottom: 15px !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    gap: 27px;
+    text-decoration: none !important;
+    transition: background-color 0.2s;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+.bauer-cat-card:hover {
+    background-color: #2A2A2A !important;
+    text-decoration: none !important;
+    color: var(--bauer-white);
+}
+.bauer-cat-icon {
+    width: 87px !important;
+    height: 87px !important;
+    min-width: 87px;
+    min-height: 87px;
+    display: block !important;
+    flex-shrink: 0;
+}
+.bauer-cat-label {
+    font-family: var(--bauer-font-heading);
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--bauer-white);
+    text-align: center;
+    letter-spacing: 0;
+}
+
+
+/* ============================================================
+   7. PRODUCT SLIDER SECTION  (page/sections/products.tpl)
+   ============================================================ */
+
+.bauer-products {
+    background: var(--bauer-bg-body);
+    padding: 60px 120px;
+}
+.bauer-products-inner {
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+.bauer-products-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.bauer-products-heading {
+    font-family: var(--bauer-font-heading);
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--bauer-white);
+    margin: 0;
+}
+.bauer-products-viewall {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--bauer-font-heading);
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--bauer-red);
+    text-decoration: underline;
+}
+.bauer-products-viewall:hover {
+    color: var(--bauer-red-hover);
+    text-decoration: underline;
+}
+.bauer-product-cards {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    scrollbar-width: none;
+}
+.bauer-product-cards::-webkit-scrollbar { display: none; }
+.bauer-product-card {
+    flex: 0 0 282px;
+    width: 282px;
+    border-radius: 9px;
+    overflow: hidden;
+    background: var(--bauer-bg-surface);
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+}
+.bauer-product-card-image {
+    width: 100%;
+    height: 210px;
+    background: var(--bauer-bg-surface-2);
+    flex-shrink: 0;
+}
+.bauer-product-card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px;
+    flex: 1;
+}
+.bauer-product-badge {
+    display: inline-flex;
+    align-items: center;
+    align-self: flex-start;
+    padding: 3px 8px;
+    border-radius: 4px;
+    background: var(--bauer-green-30);
+    font-family: var(--bauer-font-heading);
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.4;
+    color: var(--bauer-green);
+}
+.bauer-product-title {
+    font-family: var(--bauer-font-heading);
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--bauer-white);
+    text-decoration: none;
+    display: block;
+}
+.bauer-product-title:hover {
+    color: var(--bauer-text-secondary);
+    text-decoration: none;
+}
+.bauer-product-desc {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.4;
+    color: var(--bauer-text-secondary);
+    margin: 0;
+}
+.bauer-product-price-wrap {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    gap: 6px;
+    flex-wrap: nowrap;
+    margin-top: auto;
+}
+.bauer-product-price {
+    font-family: var(--bauer-font-heading);
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--bauer-white);
+}
+.bauer-product-vat {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--bauer-text-secondary);
+    line-height: 1;
+}
+.bauer-product-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    height: 41px;
+    padding: 11px 26px 9px;
+    border-radius: 3.5px;
+    background: var(--bauer-red);
+    color: var(--bauer-white) !important;
+    font-family: var(--bauer-font-heading);
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1;
+    border: none;
+    cursor: pointer;
+    text-decoration: none !important;
+    transition: background-color 0.15s;
+    box-sizing: border-box;
+}
+.bauer-product-btn:hover {
+    background: var(--bauer-red-hover);
+    color: var(--bauer-white) !important;
+    text-decoration: none !important;
+}
+
+
+/* ============================================================
+   8. PAKETE SECTION  (page/sections/pakete.tpl)
+   ============================================================ */
+
+.bauer-pakete {
+    background: var(--bauer-bg-surface-3);
+    padding: 44px 120px;
+}
+.bauer-pakete-inner {
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+.bauer-pakete-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.bauer-pakete-heading {
+    font-family: var(--bauer-font-heading);
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--bauer-white);
+    margin: 0;
+}
+.bauer-pakete-viewall {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--bauer-font-heading);
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--bauer-red);
+    text-decoration: underline;
+}
+.bauer-pakete-viewall:hover {
+    color: var(--bauer-red-hover);
+    text-decoration: underline;
+}
+.bauer-pakete-cards {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    align-items: stretch;
+}
+.bauer-paket-card {
+    flex: 1;
+    min-width: 0;
+    border-radius: 10px;
+    overflow: hidden;
+    background: var(--bauer-bg-surface);
+    display: flex;
+    flex-direction: column;
+    text-decoration: none !important;
+}
+.bauer-paket-card:hover { text-decoration: none !important; }
+.bauer-paket-card-image {
+    width: 100%;
+    height: 168px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+.bauer-paket-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.bauer-paket-card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 16px 24px;
+    flex: 1;
+}
+.bauer-paket-card-title {
+    font-family: var(--bauer-font-heading);
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 22.4px;
+    color: var(--bauer-white);
+}
+.bauer-paket-card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-family: var(--bauer-font-heading);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1;
+    color: var(--bauer-red);
+    text-decoration: none;
+    margin-top: auto;
+}
+.bauer-paket-card:hover .bauer-paket-card-link { color: var(--bauer-red-hover); }
+
+
+/* ============================================================
+   9. ENERGIESYSTEM SECTION  (page/sections/energiesystem.tpl)
+   ============================================================ */
+
+.bauer-energiesystem {
+    background: var(--bauer-bg-body);
+    padding: 60px 120px;
+}
+.bauer-energiesystem-inner {
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+.bauer-energiesystem-heading {
+    font-family: var(--bauer-font-heading);
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--bauer-white);
+    margin: 0;
+}
+.bauer-energiesystem-cards {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    align-items: stretch;
+}
+.bauer-energie-card {
+    flex: 1;
+    min-width: 0;
+    height: 180px;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 10px;
+    text-decoration: none !important;
+    background: var(--bauer-bg-surface);
+    transition: background-color 0.2s;
+}
+.bauer-energie-card:hover {
+    background: #2A2A2A;
+    text-decoration: none !important;
+}
+.bauer-energie-card-title {
+    font-family: var(--bauer-font-heading);
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 30px;
+    color: var(--bauer-red);
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    text-transform: none;
+}
+.bauer-energie-card-subtitle {
+    font-family: var(--bauer-font-heading);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1;
+    color: var(--bauer-white);
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    text-transform: none;
+}
+
+
+/* ============================================================
+   10. LOESUNGEN SECTION  (page/sections/loesungen.tpl)
+   ============================================================ */
+
+.bauer-loesungen {
+    background: var(--bauer-bg-body);
+    padding: 60px 120px;
+}
+.bauer-loesungen-inner {
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+.bauer-loesungen-heading {
+    font-family: var(--bauer-font-heading);
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--bauer-white);
+    margin: 0;
+}
+.bauer-loesungen-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+.bauer-loesung-card {
+    display: flex;
+    flex-direction: row;
+    border-radius: 10px;
+    overflow: hidden;
+    background: var(--bauer-bg-surface);
+    min-height: 290px;
+    text-decoration: none !important;
+    transition: background-color 0.2s;
+}
+.bauer-loesung-card:hover {
+    background: #242424;
+    text-decoration: none !important;
+}
+.bauer-loesung-card-image {
+    flex: 0 0 290px;
+    width: 290px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+.bauer-loesung-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.bauer-loesung-card-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 28px;
+    min-width: 0;
+}
+.bauer-loesung-card-title {
+    font-family: var(--bauer-font-heading);
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 28px;
+    color: var(--bauer-white);
+    margin: 0 0 12px 0;
+    text-transform: none;
+}
+.bauer-loesung-card-desc {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--bauer-text-secondary);
+    margin: 0;
+    flex: 1;
+}
+.bauer-loesung-card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-family: var(--bauer-font-heading);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1;
+    color: var(--bauer-red);
+    text-decoration: none;
+    margin-top: 20px;
+}
+.bauer-loesung-card:hover .bauer-loesung-card-link { color: var(--bauer-red-hover); }

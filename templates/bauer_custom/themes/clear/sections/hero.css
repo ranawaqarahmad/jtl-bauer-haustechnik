@@ -1,0 +1,140 @@
+/* ============================================================
+   HERO SECTION  (Figma: Rectangle 4 — 1440×747px)
+   ============================================================ */
+
+.bauer-hero {
+    position: relative;
+    width: 100%;
+    min-height: 747px;
+    background-color: var(--bauer-bg-body);
+    background-position: center right;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Left-to-right dark gradient — keeps text readable over image */
+.bauer-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        rgba(10, 10, 10, 0.95) 0%,
+        rgba(10, 10, 10, 0.88) 22%,
+        rgba(10, 10, 10, 0.55) 50%,
+        rgba(10, 10, 10, 0.10) 72%,
+        transparent 88%
+    );
+    pointer-events: none;
+}
+
+/* Content block — 87px left offset, max 694px wide */
+.bauer-hero-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 87px;
+    max-width: 694px;
+}
+
+/* Badge: "Schneller Zugriff und schneller Einkauf"
+   Figma: 40px radius, 1px border #E2112F, padding 7/13/5/13 */
+.bauer-hero-badge {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid var(--bauer-red);
+    border-radius: 40px;
+    padding: 7px 13px 5px 13px;
+    font-family: var(--bauer-font-heading);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1;
+    color: var(--bauer-white);
+    white-space: nowrap;
+    margin-bottom: 20px;
+}
+
+/* Headline: 56px Bold, line-height 52.5px */
+.bauer-hero-headline {
+    font-family: var(--bauer-font-heading);
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 52.5px;
+    color: var(--bauer-white);
+    letter-spacing: 0;
+    margin: 0 0 18px 0;
+    max-width: 607px;
+}
+
+.bauer-hero-headline-red {
+    display: block;
+    color: var(--bauer-red);
+}
+
+/* Subtext: 24px Regular */
+.bauer-hero-subtext {
+    font-family: var(--bauer-font-heading);
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1;
+    color: var(--bauer-white);
+    letter-spacing: 0;
+    margin: 0 0 28px 0;
+    max-width: 607px;
+}
+
+/* CTA row — 3 buttons, 12px gap */
+.bauer-hero-cta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+/* Button base: 44px h, 4px radius, padding 12/30/10/30, 18px text */
+.bauer-hero-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    height: 44px;
+    padding: 12px 30px 10px 30px;
+    border-radius: var(--bauer-radius-sm);
+    font-family: var(--bauer-font-heading);
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1;
+    color: var(--bauer-white);
+    text-decoration: none;
+    white-space: nowrap;
+    border: none;
+    transition: background-color 0.15s, opacity 0.15s;
+    cursor: pointer;
+}
+
+.bauer-hero-btn:hover,
+.bauer-hero-btn:focus {
+    color: var(--bauer-white);
+    text-decoration: none;
+}
+
+.bauer-hero-btn-primary {
+    background-color: var(--bauer-red);
+}
+
+.bauer-hero-btn-primary:hover {
+    background-color: var(--bauer-red-hover);
+}
+
+.bauer-hero-btn-dark {
+    background-color: var(--bauer-bg-body);
+}
+
+.bauer-hero-btn-dark:hover {
+    background-color: var(--bauer-bg-surface);
+    color: var(--bauer-white);
+}
