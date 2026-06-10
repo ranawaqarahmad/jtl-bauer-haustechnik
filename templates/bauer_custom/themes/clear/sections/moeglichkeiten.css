@@ -1,0 +1,92 @@
+/* ============================================================
+   MEHR MÖGLICHKEITEN SECTION  (reference — not auto-loaded)
+   "Mehr Möglichkeiten zum Einkaufen und Zeitsparen"
+   Figma: Frame 58 — 3×2 grid, icon-left feature cards
+   All styles live in wa.css under Section 11.
+   ============================================================ */
+
+.bauer-moegl {
+    background: var(--bauer-bg-body);
+    padding: 60px 120px;
+}
+
+.bauer-moegl-inner {
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.bauer-moegl-heading {
+    font-family: var(--bauer-font-heading);
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--bauer-white);
+    margin: 0;
+    text-transform: none;
+}
+
+/* 3-column × 2-row grid, 24px gap in both axes */
+.bauer-moegl-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+/* Individual card — horizontal layout: icon left, text right */
+.bauer-moegl-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 14px;
+    padding: 20px;
+    background: var(--bauer-bg-surface);
+    border-radius: 10px;
+    text-decoration: none !important;
+    transition: background-color 0.2s;
+}
+
+.bauer-moegl-card:hover {
+    background: #2A2A2A;
+    text-decoration: none !important;
+}
+
+/* Icon wrapper: 56×56px, red tint bg, 8px radius */
+.bauer-moegl-card-icon {
+    flex-shrink: 0;
+    width: 56px;
+    height: 56px;
+    border-radius: 8px;
+    background: rgba(226, 17, 47, 0.10);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Text block: title + description stacked */
+.bauer-moegl-card-text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+}
+
+.bauer-moegl-card-title {
+    font-family: var(--bauer-font-heading);
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--bauer-white);
+    margin: 0;
+    text-transform: none;
+}
+
+.bauer-moegl-card-desc {
+    font-family: var(--bauer-font-heading);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.4;
+    color: #A0A0A0;
+    margin: 0;
+}

@@ -6,6 +6,8 @@
     {include file='page/sections/pakete.tpl'}
     {include file='page/sections/loesungen.tpl'}
     {include file='page/sections/energiesystem.tpl'}
+    {include file='page/sections/moeglichkeiten.tpl'}
+    {include file='page/sections/warum.tpl'}
 
     {* OPC mount points — re-enable when sections below are ready *}
     {* {opcMountPoint id='opc_salepix_startpageone' inContainer=false} *}

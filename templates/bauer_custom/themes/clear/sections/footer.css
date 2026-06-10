@@ -1,0 +1,30 @@
+/* ============================================================
+   FOOTER SECTION  (reference — not auto-loaded)
+   Figma: 4-col layout — Logo+Social | GESCHÄFT | SERVICE | Newsletter
+   All styles live in wa.css under Section 13.
+
+   STRUCTURE (footer.tpl):
+     #footer.footer > .wa-footer-main > .container
+       > .footer-boxes.row
+           > .bauer-footer-col1      (305px) — logo, contact, social icons
+           > .bauer-footer-navbox    (flex:1) — GESCHÄFT nav links
+           > .bauer-footer-navbox    (flex:1) — SERVICE nav links
+           > .bauer-footer-newsletter (484px) — newsletter form
+       > #copyright.footer-copyright
+           > .bauer-footer-copyright-left  — "© Bauer Haustechnik"
+           > .bauer-footer-copyright-right — legal links
+
+   KEY VALUES from Figma:
+     bg: #0A0A0A
+     padding: 44px 120px (top/sides), 24px bottom for copyright
+     column gap: 58px
+     col1 width: 305px
+     newsletter width: 484px
+     heading (nav cols): 18px Bold #FFF
+     heading (newsletter): 14px Bold #FFF
+     link color: #A0A0A0, 16px
+     social icons: 40×40 circle, bg #1E1E1E, hover bg #E2112F
+     input: bg #242424, radius 4px 0 0 4px, padding 10px 26px
+     submit btn: bg #E2112F, radius 0 4px 4px 0, 18px #FFF
+     copyright bar: border-top #1E1E1E, copyright 14px #A0A0A0, links 16px #A0A0A0
+   ============================================================ */

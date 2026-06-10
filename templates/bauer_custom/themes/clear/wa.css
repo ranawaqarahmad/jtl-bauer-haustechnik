@@ -43,6 +43,7 @@
 
     /* --- Layout --- */
     --bauer-container-max:    1440px;
+    --bauer-content-max:      1200px;
     --bauer-radius-sm:        4px;
     --bauer-radius-md:        8px;
     --bauer-radius-lg:        12px;
@@ -84,24 +85,20 @@
    Drop font files into: templates/bauer_custom/fonts/
    then uncomment these blocks.
    ============================================================ */
-/*
 @font-face {
     font-family: 'DIN Next LT Pro';
-    src: url('../../fonts/DINNextLTPro-Regular.woff2') format('woff2'),
-         url('../../fonts/DINNextLTPro-Regular.woff')  format('woff');
+    src: url('../../fonts/din-next-lt-pro-regular.ttf') format('truetype');
     font-weight: 400;
     font-style: normal;
     font-display: swap;
 }
 @font-face {
     font-family: 'DIN Next LT Pro';
-    src: url('../../fonts/DINNextLTPro-Bold.woff2') format('woff2'),
-         url('../../fonts/DINNextLTPro-Bold.woff')  format('woff');
+    src: url('../../fonts/DINNextLTPro-Bold.ttf') format('truetype');
     font-weight: 700;
     font-style: normal;
     font-display: swap;
 }
-*/
 
 
 /* ============================================================
@@ -669,6 +666,7 @@ header.header .container,
     display: inline-flex;
     align-items: center;
     align-self: flex-start;
+    gap: 5px;
     padding: 3px 8px;
     border-radius: 4px;
     background: var(--bauer-green-30);
@@ -677,6 +675,10 @@ header.header .container,
     font-weight: 400;
     line-height: 1.4;
     color: var(--bauer-green);
+}
+.bauer-product-badge svg {
+    flex-shrink: 0;
+    display: block;
 }
 .bauer-product-title {
     font-family: var(--bauer-font-heading);
@@ -1009,3 +1011,1002 @@ header.header .container,
     margin-top: 20px;
 }
 .bauer-loesung-card:hover .bauer-loesung-card-link { color: var(--bauer-red-hover); }
+
+/* =================================================================
+   SECTION 11: MEHR MÖGLICHKEITEN
+   "Mehr Möglichkeiten zum Einkaufen und Zeitsparen"
+   Figma: Frame 58 — 3×2 grid, icon-left feature cards
+   ================================================================= */
+
+.bauer-moegl {
+    background: var(--bauer-bg-body);
+    padding: 60px 120px;
+}
+
+.bauer-moegl-inner {
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.bauer-moegl-heading {
+    font-family: var(--bauer-font-heading);
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--bauer-white);
+    margin: 0;
+    text-transform: none;
+}
+
+/* 3-column × 2-row grid, 24px gap in both axes */
+.bauer-moegl-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+/* Individual card — horizontal layout: icon left, text right */
+.bauer-moegl-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 14px;
+    padding: 20px;
+    background: var(--bauer-bg-surface);
+    border-radius: 10px;
+    text-decoration: none !important;
+    transition: background-color 0.2s;
+}
+
+.bauer-moegl-card:hover {
+    background: #2A2A2A;
+    text-decoration: none !important;
+}
+
+/* Icon wrapper: 56×56px, red tint bg, 8px radius */
+.bauer-moegl-card-icon {
+    flex-shrink: 0;
+    width: 56px;
+    height: 56px;
+    border-radius: 8px;
+    background: rgba(226, 17, 47, 0.10);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Text block: title + description stacked */
+.bauer-moegl-card-text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+}
+
+.bauer-moegl-card-title {
+    font-family: var(--bauer-font-heading);
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--bauer-white);
+    margin: 0;
+    text-transform: none;
+}
+
+.bauer-moegl-card-desc {
+    font-family: var(--bauer-font-heading);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.4;
+    color: #A0A0A0;
+    margin: 0;
+}
+
+/* =================================================================
+   SECTION 12: WARUM BAUER PROTOOLS WÄHLEN?
+   Figma: Frame 64 — diagonal stripe bg, 4 USP cards in dark row
+   ================================================================= */
+
+.bauer-warum {
+    padding: 60px 120px;
+}
+
+.bauer-warum-inner {
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.bauer-warum-heading {
+    font-family: var(--bauer-font-heading);
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--bauer-white);
+    margin: 0;
+    text-transform: none;
+    align-self: flex-start;
+}
+
+/* Single dark rounded container holding all 4 cards */
+.bauer-warum-cards {
+    display: flex;
+    padding: 20px 50px;
+    justify-content: space-between;
+    align-items: center;
+    align-self: stretch;
+    border-radius: 10px;
+    background: #1E1E1E;
+}
+
+/* Individual USP card — vertical, centered, no extra padding (container handles it) */
+.bauer-warum-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    flex: 1;
+}
+
+/* Icon wrapper — 64×64 full circle, red tint */
+.bauer-warum-card-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 32px;
+    background: rgba(226, 17, 47, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+/* USP label — 16px Regular white centered */
+.bauer-warum-card-label {
+    font-family: var(--bauer-font-heading);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.4;
+    color: var(--bauer-white);
+    text-align: center;
+    text-transform: none;
+    margin: 0;
+}
+
+
+/* =================================================================
+   SECTION 13: FOOTER
+   Figma: 4-col layout — Logo+Social | GESCHÄFT | SERVICE | Newsletter
+   bg #0A0A0A, padding 44px 120px 24px 120px
+   ================================================================= */
+
+/* ---- Outer footer shell ---- */
+#footer,
+.footer {
+    background: #0A0A0A !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* SALEPIX parent layout wraps footer-content block in a .container — neutralise it */
+#footer > .container,
+.footer > .container {
+    max-width: none !important;
+    padding: 0 !important;
+    width: 100% !important;
+    margin: 0 !important;
+}
+
+/* Remove SALEPIX horizontal separator lines above/below footer-boxes
+   (from inline <style> block: .footer .footer-boxes::before/after { content:""; height:1px ... }) */
+.footer .footer-boxes::before,
+.footer .footer-boxes::after {
+    display: none !important;
+    content: none !important;
+}
+
+.wa-footer-main {
+    background: #0A0A0A !important;
+    padding: 44px 120px 0 120px !important;
+}
+
+/* ---- Main columns row ---- */
+.footer-boxes {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    gap: 58px !important;
+    align-items: flex-start !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    margin: 0 !important;
+}
+
+/* Strip Bootstrap column padding from footer cols */
+.footer-boxes > .col-12,
+.footer-boxes > [class*="col-"] {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+/* Col 1: Logo + description + social — 305px fixed width
+   Either via .bauer-footer-col1 (when footerContact HTML block is configured)
+   or via .bauer-footer-navbox:first-child (logo set as JTL bottom box)        */
+.bauer-footer-col1,
+.bauer-footer-navbox:first-child {
+    flex: 0 0 305px !important;
+    max-width: 305px !important;
+    min-width: 0 !important;
+}
+
+/* Nav cols: auto-width, equal share */
+.bauer-footer-navbox {
+    flex: 1 1 0 !important;
+    max-width: none !important;
+    min-width: 0 !important;
+}
+
+/* Newsletter col — 484px fixed */
+.bauer-footer-newsletter {
+    flex: 0 0 484px !important;
+    max-width: 484px !important;
+    min-width: 0 !important;
+}
+
+/* ---- Strip card styling from all footer boxes ---- */
+.footer-boxes .card.box.box-normal {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* ---- Col 1: Logo ---- */
+.footer-logo {
+    display: block;
+}
+.footer-logo img {
+    max-width: 180px;
+    height: auto;
+    display: block;
+}
+
+/* Col 1: heading row (holds logo) — remove border */
+.bauer-footer-col1 .productlist-filter-headline {
+    border: none !important;
+    padding-bottom: 16px !important;
+    margin-bottom: 0 !important;
+}
+
+/* ---- Col 1: Contact / description text ---- */
+.footer-contact {
+    font-family: var(--bauer-font-heading);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #A0A0A0;
+    margin-bottom: 20px;
+}
+.footer-contact p,
+.footer-contact span,
+.footer-contact div {
+    color: #A0A0A0;
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0;
+}
+.footer-contact a {
+    color: #A0A0A0 !important;
+    text-decoration: none !important;
+}
+.footer-contact a:hover {
+    color: var(--bauer-white) !important;
+}
+
+/* ---- Col 1: Social icons wrapper ---- */
+.bauer-footer-socials {
+    margin-top: 4px;
+}
+
+.bauer-footer-socials .slpx-social-icons-box {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 12px !important;
+    align-items: center !important;
+}
+
+/* Hide "Follow us" label */
+.bauer-footer-socials .slpx-social-icons-box .h4 {
+    display: none !important;
+}
+
+/* Social icon buttons — 40×40 circles */
+.bauer-footer-socials .btn.btn-primary.is-square {
+    width: 40px !important;
+    height: 40px !important;
+    min-width: 40px !important;
+    padding: 0 !important;
+    border-radius: 50% !important;
+    background: #1E1E1E !important;
+    border: 1px solid #2A2A2A !important;
+    color: #A0A0A0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: background-color 0.2s, border-color 0.2s !important;
+    flex-shrink: 0 !important;
+}
+.bauer-footer-socials .btn.btn-primary.is-square:hover {
+    background: var(--bauer-red) !important;
+    border-color: var(--bauer-red) !important;
+    color: var(--bauer-white) !important;
+}
+.bauer-footer-socials .btn.btn-primary.is-square svg,
+.bauer-footer-socials .btn.btn-primary.is-square path {
+    fill: currentColor !important;
+    stroke: currentColor !important;
+}
+
+/* ---- Logo box (first navbox): strip nav-panel link styles, show logo + desc ---- */
+.bauer-footer-navbox:first-child .nav-panel.box-nav-item {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+}
+.bauer-footer-navbox:first-child .nav-panel.box-nav-item a,
+.bauer-footer-navbox:first-child .nav-panel.box-nav-item .nav-link {
+    padding: 0 !important;
+    font-size: 16px !important;
+    color: #A0A0A0 !important;
+}
+.bauer-footer-navbox:first-child .card.box.box-normal {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+/* Logo image */
+.wa-footer-logo-div {
+    margin: 0 0 4px 0 !important;
+}
+.wa-footer-logo-div img,
+.wa-footer-logo {
+    max-width: 180px !important;
+    height: auto !important;
+    display: block !important;
+}
+/* Description text below logo */
+.bauer-footer-navbox:first-child .wa-footer-text,
+.bauer-footer-navbox:first-child .nav-panel p {
+    font-family: var(--bauer-font-heading) !important;
+    font-size: 16px !important;
+    font-weight: 400 !important;
+    line-height: 1.6 !important;
+    color: #A0A0A0 !important;
+    margin: 0 !important;
+    text-transform: none !important;
+}
+
+/* ---- Nav columns: headings (not the logo col) ---- */
+.bauer-footer-navbox:not(:first-child) .productlist-filter-headline {
+    border: none !important;
+    padding-bottom: 14px !important;
+    margin-bottom: 4px !important;
+    font-family: var(--bauer-font-heading) !important;
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    line-height: 1 !important;
+    color: var(--bauer-white) !important;
+    text-transform: none !important;
+}
+.bauer-footer-navbox:not(:first-child) .productlist-filter-headline span {
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    color: var(--bauer-white) !important;
+    text-transform: none !important;
+}
+
+/* ---- Nav columns: links ---- */
+.nav-panel.box-nav-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding: 0 !important;
+}
+.nav-panel.box-nav-item .nav,
+.nav-panel.box-nav-item ul {
+    flex-direction: column !important;
+    gap: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    list-style: none !important;
+}
+.nav-panel.box-nav-item .nav-item,
+.nav-panel.box-nav-item li {
+    padding: 0 !important;
+    margin: 0 !important;
+    line-height: 1 !important;
+}
+.nav-panel.box-nav-item .nav-link,
+.nav-panel.box-nav-item a {
+    font-family: var(--bauer-font-heading) !important;
+    font-size: 16px !important;
+    font-weight: 400 !important;
+    line-height: 1 !important;
+    color: #A0A0A0 !important;
+    text-decoration: none !important;
+    padding: 4px 0 !important;
+    display: block;
+    text-transform: none !important;
+}
+.nav-panel.box-nav-item .nav-link:hover,
+.nav-panel.box-nav-item a:hover {
+    color: var(--bauer-white) !important;
+    text-decoration: none !important;
+}
+
+/* ---- Newsletter column: heading ---- */
+.bauer-footer-newsletter .productlist-filter-headline {
+    border: none !important;
+    padding-bottom: 14px !important;
+    margin-bottom: 0 !important;
+    font-family: var(--bauer-font-heading) !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    line-height: 1 !important;
+    color: var(--bauer-white) !important;
+    text-transform: none !important;
+}
+
+/* ---- Newsletter form ---- */
+.slpx-newsletter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Hide the prepend email-icon button */
+.slpx-newsletter-form .input-group-prepend,
+.slpx-newsletter-form .slpx-newsletter-form-btn-icon {
+    display: none !important;
+}
+
+/* Remove form group label spacing */
+.slpx-newsletter-form .form-group,
+.slpx-newsletter-form .newsletter-email-wrapper {
+    margin-bottom: 0 !important;
+}
+
+.slpx-newsletter-form .input-group {
+    flex-wrap: nowrap !important;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+/* Email input */
+.slpx-newsletter-form .form-control,
+.slpx-newsletter-form input[type="email"] {
+    background: #242424 !important;
+    border: none !important;
+    border-radius: 4px 0 0 4px !important;
+    padding: 10px 26px !important;
+    font-family: var(--bauer-font-heading) !important;
+    font-size: 16px !important;
+    font-weight: 400 !important;
+    color: var(--bauer-white) !important;
+    height: auto !important;
+    line-height: 1.4 !important;
+    box-shadow: none !important;
+    flex: 1 !important;
+}
+.slpx-newsletter-form .form-control::placeholder,
+.slpx-newsletter-form input[type="email"]::placeholder {
+    color: #A0A0A0 !important;
+}
+.slpx-newsletter-form .form-control:focus,
+.slpx-newsletter-form input[type="email"]:focus {
+    background: #2A2A2A !important;
+    outline: none !important;
+    box-shadow: none !important;
+    border-color: transparent !important;
+}
+
+/* Submit / Abonnieren button */
+.slpx-newsletter-form .slpx-newsletter-form-submit,
+.slpx-newsletter-form .input-group-append .btn {
+    background: var(--bauer-red) !important;
+    border: none !important;
+    border-radius: 0 4px 4px 0 !important;
+    padding: 10px 26px !important;
+    font-family: var(--bauer-font-heading) !important;
+    font-size: 18px !important;
+    font-weight: 400 !important;
+    color: var(--bauer-white) !important;
+    white-space: nowrap !important;
+    cursor: pointer !important;
+    transition: background-color 0.2s !important;
+    height: auto !important;
+    line-height: 1.4 !important;
+}
+.slpx-newsletter-form .slpx-newsletter-form-submit:hover,
+.slpx-newsletter-form .input-group-append .btn:hover {
+    background: var(--bauer-red-hover) !important;
+}
+
+/* Spam / consent text below form */
+.slpx-newsletter-form p,
+.slpx-newsletter-form .form-text {
+    font-family: var(--bauer-font-heading);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #A0A0A0;
+    margin: 0;
+}
+.slpx-newsletter-form p a,
+.slpx-newsletter-form .form-text a {
+    color: #A0A0A0 !important;
+    text-decoration: underline !important;
+}
+
+/* ---- Copyright bar ---- */
+.footer-copyright,
+#copyright {
+    background: #0A0A0A !important;
+    border-top: 1px solid #1E1E1E !important;
+    padding: 16px 120px 24px 120px !important;
+    margin: 0 !important;
+}
+
+.footer-copyright .row,
+#copyright .row {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    margin: 0 !important;
+}
+
+/* Copyright left: "© 2024 Bauer Haustechnik GmbH" */
+.bauer-footer-copyright-left {
+    flex: 0 0 auto !important;
+    max-width: none !important;
+    padding: 0 !important;
+    font-family: var(--bauer-font-heading) !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    color: #A0A0A0 !important;
+    text-align: left !important;
+}
+.bauer-footer-copyright-left span,
+.bauer-footer-copyright-left .small {
+    font-size: 14px !important;
+    color: #A0A0A0 !important;
+}
+
+/* Copyright right: legal links */
+.bauer-footer-copyright-right {
+    flex: 0 0 auto !important;
+    max-width: none !important;
+    padding: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 16px !important;
+    justify-content: flex-end !important;
+    font-family: var(--bauer-font-heading) !important;
+    font-size: 16px !important;
+    font-weight: 400 !important;
+    color: #A0A0A0 !important;
+}
+.bauer-footer-copyright-right span,
+.bauer-footer-copyright-right a {
+    font-size: 16px !important;
+    color: #A0A0A0 !important;
+    text-decoration: none !important;
+}
+.bauer-footer-copyright-right a:hover {
+    color: var(--bauer-white) !important;
+}
+
+/* ---- Hide JTL/SALEPIX system credits ---- */
+#system-credits {
+    display: none !important;
+}
+
+/* ---- Hide wa-footer-text ---- */
+.wa-footer-text-main {
+    display: none !important;
+}
+
+/* ---- Override SALEPIX inline-block footer rules (loaded after clear.css) ---- */
+
+/* SALEPIX: .footer { font-size: 12px; font-family: Manrope } — override at footer level */
+.footer,
+#footer {
+    font-family: var(--bauer-font-heading) !important;
+    font-size: 16px !important;
+    color: #A0A0A0 !important;
+}
+
+/* SALEPIX: .footer .box-normal .nav-link { font-size: 12px; font-family: Manrope } */
+.footer .box-normal .nav-link,
+.footer .nav-link {
+    font-family: var(--bauer-font-heading) !important;
+    font-size: 16px !important;
+    color: #A0A0A0 !important;
+    padding: 4px 0 !important;
+    line-height: 1 !important;
+    text-transform: none !important;
+}
+.footer .box-normal .nav-link:hover,
+.footer .nav-link:hover {
+    color: var(--bauer-white) !important;
+}
+
+/* SALEPIX: .footer .box-normal { background-color: var(--slpx-footer-background) } */
+.footer .box-normal {
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* SALEPIX: footer .box-normal .productlist-filter-headline { color: contrast; font-size: 20px } */
+.footer .box-normal .productlist-filter-headline {
+    color: var(--bauer-white) !important;
+    font-family: var(--bauer-font-heading) !important;
+    text-transform: none !important;
+}
+
+/* SALEPIX: h4 selector targeting footer headings specifically */
+footer .box-normal .productlist-filter-headline {
+    font-weight: 700 !important;
+    font-size: 18px !important;
+    color: var(--bauer-white) !important;
+    font-family: var(--bauer-font-heading) !important;
+    text-transform: none !important;
+    border: none !important;
+    padding-bottom: 14px !important;
+    margin-bottom: 4px !important;
+}
+
+/* First navbox heading (logo col) should not show as a nav heading */
+.bauer-footer-navbox:first-child .productlist-filter-headline {
+    display: none !important;
+}
+
+/* ---- Col-1 inner layout ---- */
+.bauer-footer-col1-inner {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 20px !important;
+}
+
+/* Logo image in col-1 */
+.bauer-footer-logo-wrap {
+    display: block;
+}
+.bauer-footer-logo-img,
+.bauer-footer-logo-wrap img {
+    max-width: 180px !important;
+    height: auto !important;
+    display: block !important;
+}
+
+/* Description text below logo */
+.bauer-footer-desc {
+    font-family: var(--bauer-font-heading) !important;
+    font-size: 16px !important;
+    font-weight: 400 !important;
+    line-height: 1.6 !important;
+    color: #A0A0A0 !important;
+}
+.bauer-footer-desc p {
+    margin: 0 !important;
+    color: #A0A0A0 !important;
+    font-size: 16px !important;
+}
+
+/* ---- Copyright row layout ---- */
+.bauer-copyright-row {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    margin: 0 !important;
+    padding: 16px 0 !important;
+}
+
+/* ---- VAT notice (full width, below copyright/links) ---- */
+.bauer-footer-vat-notice {
+    font-family: var(--bauer-font-heading) !important;
+    font-size: 12px !important;
+    color: #606060 !important;
+    padding: 8px 0 0 0 !important;
+    width: 100%;
+}
+.bauer-footer-vat-notice a {
+    color: #606060 !important;
+    text-decoration: underline !important;
+}
+
+
+/* =================================================================
+   SECTION 14: LISTING PAGE — Category Banner
+   Figma: Rectangle 16 — 1440×218px, bg-image, dark overlay
+   ================================================================= */
+
+/* ---- Banner shell ---- */
+.bauer-cat-banner {
+    position: relative;
+    width: 100%;
+    height: 218px;
+    background-size: cover;
+    background-position: center 50%;
+    background-color: #1E1E1E;
+    overflow: hidden;
+    margin-bottom: 0 !important;
+    border: none !important;
+    border-radius: 0 !important;
+}
+
+/* Dark overlay over background image */
+.bauer-cat-banner::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+}
+
+.row.productlist-page-nav.productlist-page-nav-header {
+    margin-top: 25px;
+}
+
+/* Inner: 3-row flex column, 120px side padding */
+.bauer-cat-banner-inner {
+    position: relative;
+    height: 100%;
+    padding: 16px 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: 2;
+}
+
+/* Top row: breadcrumb */
+.bauer-cat-banner-top {
+    flex-shrink: 0;
+}
+
+/* Middle row: title + subtitle centered */
+.bauer-cat-banner-middle {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bauer-cat-banner-titles {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    width: 355px;
+    text-align: center;
+}
+
+.bauer-cat-banner-title {
+    font-family: var(--bauer-font-heading) !important;
+    font-size: 36px !important;
+    font-weight: 700 !important;
+    color: #FFFFFF !important;
+    text-align: center !important;
+    line-height: 1.46 !important;
+    margin: 0 !important;
+    text-transform: none !important;
+    align-self: stretch !important;
+}
+
+.bauer-cat-banner-subtitle {
+    font-family: var(--bauer-font-heading) !important;
+    font-size: 16px !important;
+    font-weight: 400 !important;
+    color: #FFFFFF !important;
+    text-align: center !important;
+    margin: 0 !important;
+    line-height: normal !important;
+    align-self: stretch !important;
+}
+
+/* Bottom row: product count */
+.bauer-cat-banner-bottom {
+    flex-shrink: 0;
+}
+
+.bauer-cat-banner-count {
+    font-family: var(--bauer-font-heading) !important;
+    font-size: 16px !important;
+    font-weight: 400 !important;
+    color: #A0A0A0 !important;
+    line-height: normal !important;
+}
+
+/* ---- Breadcrumb inside banner ---- */
+.bauer-cat-banner-breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.bauer-crumb-link {
+    font-family: var(--bauer-font-heading) !important;
+    font-size: 16px !important;
+    font-weight: 400 !important;
+    color: #A0A0A0 !important;
+    text-decoration: none !important;
+    line-height: 22.5px !important;
+    transition: color 0.15s !important;
+}
+.bauer-crumb-link:hover {
+    color: #FFFFFF !important;
+    text-decoration: none !important;
+}
+
+.bauer-crumb-sep {
+    font-family: var(--bauer-font-heading) !important;
+    font-size: 16px !important;
+    color: #A0A0A0 !important;
+    line-height: 22.5px !important;
+}
+
+/* Active (last) breadcrumb segment — Figma: #E2112F */
+.bauer-crumb-active {
+    font-family: var(--bauer-font-heading) !important;
+    font-size: 16px !important;
+    font-weight: 400 !important;
+    color: var(--bauer-red) !important;
+    line-height: 22.5px !important;
+}
+
+/* Override any SALEPIX card styles that land on productlist-header */
+.productlist-header.bauer-cat-banner {
+    background-color: transparent !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+}
+.productlist-header.bauer-cat-banner .card-body {
+    display: none !important;
+}
+
+
+/* ============================================================
+   15. LISTING PAGE — LAYOUT  (full-width, no left sidebar)
+       Scoped to the article-list page (body.page2) so other
+       pages that share this layout keep their sidebar.
+   ============================================================ */
+
+/* Hide the SALEPIX filter sidebar on the listing page */
+body.page2 .sidepanel-left {
+    display: none !important;
+}
+
+/* Expand the main content column to the full container width */
+body.page2 .order-lg-1.col-lg-9,
+body.page2 .col-lg-9.order-lg-1 {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+}
+
+/* Hide the duplicate breadcrumb that renders above the banner —
+   the banner already shows its own breadcrumb (Figma has only one). */
+body.page2 .container-breadcrumbs {
+    display: none !important;
+}
+
+/* Banner is edge-to-edge: break out of the container to full viewport width */
+body.page2 .bauer-cat-banner {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    margin-left: calc(50% - 50vw) !important;
+    margin-right: calc(50% - 50vw) !important;
+}
+
+/* Banner text content stays aligned with the product grid below
+   (Bauer design width = 1200px, centered) */
+body.page2 .bauer-cat-banner-inner {
+    max-width: var(--bauer-content-max, 1200px);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+    width: 100%;
+}
+
+/* Listing content (sort bar + product grid) is inset to the design width,
+   centered — matches Figma's padded card section instead of full-bleed. */
+body.page2 #result-wrapper {
+    max-width: var(--bauer-content-max, 1200px);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* USP section ("Warum Bauer ProTools wählen?") lives inside the inset
+   #result-wrapper on the listing, so break it out to full width like on
+   the homepage. Its own .bauer-warum-inner keeps the content centered. */
+body.page2 .bauer-warum {
+    width: 100vw;
+    max-width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    margin-top: 40px;
+}
+
+
+/* ============================================================
+   16. LISTING PAGE — PRODUCT CARDS
+       Reuses the homepage .bauer-product-card design (Section 7)
+       on real JTL products. These rules only adapt the card to
+       the listing grid + wire up the real product image.
+   ============================================================ */
+
+/* In the listing the card lives inside a Bootstrap grid column,
+   so it must fill the column instead of the fixed 282px slider width. */
+.productlist-mode-gallery_item {
+    display: flex !important;
+}
+.productlist-mode-gallery_item .bauer-product-card {
+    flex: 1 1 auto !important;
+    width: 100% !important;
+    height: 100% !important;
+    border: 1px solid var(--bauer-border);
+    transition: border-color 0.15s;
+}
+.productlist-mode-gallery_item .bauer-product-card:hover {
+    border-color: var(--bauer-red);
+}
+
+/* Real product image inside the image link */
+.bauer-product-card-img,
+.bauer-product-card-image img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block;
+}
+.bauer-product-card-image {
+    display: block;
+    position: relative;
+}
+
+/* Add-to-cart form must not break the card's flex column layout */
+.bauer-product-buyform {
+    margin: 0;
+    margin-top: auto;
+    width: 100%;
+}
+.bauer-product-buyform .row,
+.bauer-product-buyform .form-group {
+    margin: 0 !important;
+}
+
+/* Keep the title height stable across a row of cards */
+.productlist-mode-gallery_item .bauer-product-title {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.productlist-mode-gallery_item .bauer-product-desc {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
