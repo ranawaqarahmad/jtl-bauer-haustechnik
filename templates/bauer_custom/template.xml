@@ -151,6 +151,15 @@
             <Setting Description="Karte 6: Beschreibung" Key="m6_desc" Type="text" Value="Abholung vor Ort und dedizierter technischer Service." />
             <Setting Description="Karte 6: Link" Key="m6_link" Type="text" Value="#" />
         </Section>
+        <Section Name="Produktdetails (PDP)" Key="pdp">
+            <Setting Description="Lieferzeit-Badge Text (leer = ausblenden)" Key="delivery_badge" Type="text" Value="Lieferung in 1–3 Werktagen" />
+            <Setting Description="B2B-Button Text (leer = ausblenden)" Key="b2b_text" Type="text" Value="B2B Preis anfragen" />
+            <Setting Description="B2B-Button Link" Key="b2b_link" Type="text" Value="/kontakt" />
+            <Setting Description="Vertrauen 1: Text (leer = ausblenden)" Key="trust1" Type="text" Value="Originalprodukt" />
+            <Setting Description="Vertrauen 2: Text (leer = ausblenden)" Key="trust2" Type="text" Value="Schneller Versand" />
+            <Setting Description="Vertrauen 3: Text (leer = ausblenden)" Key="trust3" Type="text" Value="Sichere Zahlung" />
+            <Setting Description="Ähnliche Produkte: Überschrift" Key="related_heading" Type="text" Value="Das könnte Sie auch interessieren" />
+        </Section>
     </Settings>
     <Minify>
         <CSS Name="clear.css">

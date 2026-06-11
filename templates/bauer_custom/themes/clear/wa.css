@@ -2164,3 +2164,365 @@ body.page2 .bauer-warum {
     .bauer-hero-cta .bauer-hero-btn { width: 100%; justify-content: center; }
 }
 
+/* ============================================================
+   18. PRODUKTDETAILS (PDP)  — body.page1
+       JTL/SALEPIX core PDP restyled to the Bauer Figma.
+       Scoped to body.page1 so nothing else is affected.
+   ============================================================ */
+
+/* ---- Kill the light SALEPIX wrapper background; PDP is dark like the rest ---- */
+body.page1 .slpx-wrapper,
+body.page1 .spx_pd_box,
+body.page1 .spx_pd_box-form,
+body.page1 .spx_pd__main-wrapper,
+body.page1 .spx_pd__content-wrapper,
+body.page1 .spx_pd__box-recommendations,
+body.page1 #product-offer,
+body.page1 .product-gallery,
+body.page1 .product-detail { background: transparent !important; }
+
+/* base text inside the buy box = light (specific colors below still win) */
+body.page1 .spx_pd-info-inner,
+body.page1 .spx_pd-info-inner .quantity,
+body.page1 .spx_pd__actions-module,
+body.page1 .spx_pd__actions-module a,
+body.page1 .spx_pd__actions-module button { color: var(--bauer-text-primary); }
+
+/* ---- Top section: content width + 2 columns (gallery | buy box) ---- */
+body.page1 #product-offer.row {
+    max-width: var(--bauer-content-max);
+    margin-left: auto;
+    margin-right: auto;
+    gap: 22px 22px;
+    flex-wrap: nowrap;
+}
+@media (max-width: 991px) {
+    body.page1 #product-offer.row { flex-wrap: wrap; gap: 0; }
+}
+
+/* gallery column / buy box column widths (Figma ~ 690 / 488) */
+body.page1 #product-offer .product-gallery {
+    flex: 0 0 56%;
+    max-width: 56%;
+    padding-right: 0;
+}
+body.page1 #product-offer .spx_pd-info {
+    flex: 0 0 calc(44% - 22px);
+    max-width: calc(44% - 22px);
+}
+@media (max-width: 991px) {
+    body.page1 #product-offer .product-gallery,
+    body.page1 #product-offer .spx_pd-info {
+        flex: 0 0 100%;
+        max-width: 100%;
+        padding: 0;
+    }
+}
+
+/* ---- Gallery ---- */
+body.page1 .slpx-standard-gallery { gap: 20px; }
+@media (min-width: 992px) {
+    body.page1 .slpx-standard-gallery {
+        flex-direction: row !important;   /* thumbnails left, main right */
+    }
+}
+body.page1 .slpx-standard-gallery-main,
+body.page1 .gallery-with-action {
+    background: var(--bauer-bg-surface);
+    border-radius: var(--bauer-radius-md);
+    overflow: hidden;
+}
+body.page1 .slpx-standard-gallery-main-item-inner { padding: 24px; }
+
+/* ---- Buy box: stack + Figma order ---- */
+body.page1 .spx_pd-info-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+body.page1 .spx_pd-info-inner > .product-manufacturer,
+body.page1 .spx_pd-info-inner .manufacturer { order: 0; }
+body.page1 .spx_pd-info-essential { order: 1; }
+body.page1 .spx_pd-headline       { order: 2; }
+body.page1 .product-offer         { order: 3; }
+
+/* essential row: rating on top, hide the duplicate SKU (it's in the spec box) */
+body.page1 .spx_pd-info-essential {
+    justify-content: flex-start !important;
+    margin-bottom: 6px;
+}
+body.page1 .spx_pd-info-essential .product-sku { display: none; }
+body.page1 .spx_pd-info-essential .essential-items { display: none; }
+
+/* rating stars + count */
+body.page1 .product-rating-wrapper .ml-2 {
+    color: var(--bauer-text-secondary);
+    font-size: 12px;
+}
+
+/* ---- Title + subtitle + delivery badge ---- */
+body.page1 .spx_pd-headline { margin-bottom: 4px; }
+body.page1 .spx_pd-title {
+    font-family: var(--bauer-font-heading);
+    font-size: 28px;
+    line-height: 1.2;
+    font-weight: 700;
+    color: var(--bauer-text-primary);
+    margin: 0;
+}
+body.page1 .bauer-pdp-subtitle {
+    font-size: 16px;
+    line-height: 1.4;
+    color: var(--bauer-text-secondary);
+    margin: 4px 0 0;
+}
+body.page1 .bauer-pdp-delivery {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 14px;
+    padding: 7px 12px 6px;
+    border: 1px solid var(--bauer-red);
+    border-radius: 40px;
+    font-size: 13px;
+    line-height: 1;
+    color: var(--bauer-text-primary);
+}
+body.page1 .bauer-pdp-delivery svg { flex: 0 0 auto; }
+
+/* ---- product-offer becomes the ordered stack ---- */
+body.page1 .product-offer {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 18px;
+}
+body.page1 .product-offer > .spx_pd-price-block { order: 1; }
+body.page1 .product-offer > .spx_pd__stock-block { order: 2; }
+body.page1 .product-offer > .bauer-pdp-specbox { order: 3; }
+body.page1 .product-offer > .product-buy,
+body.page1 .product-offer > .basket,
+body.page1 .product-offer > .details { order: 4; }
+body.page1 .product-offer > .bauer-pdp-b2b { order: 5; }
+body.page1 .product-offer > .bauer-pdp-trust { order: 6; }
+body.page1 .product-offer > .spx_pd__actions-module { order: 7; }
+/* hide relocated / unneeded core bits on the PDP */
+body.page1 .product-offer > .spx_pd__short-description,
+body.page1 .product-offer > .spx_pd__payment-plugins { display: none; }
+
+/* ---- Price ---- */
+body.page1 .spx_pd-price-block { margin: 0 0 4px; }
+body.page1 .spx_pd-price-block .price,
+body.page1 .spx_pd-price-block .price-regular {
+    font-family: var(--bauer-font-heading);
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--bauer-red);
+    line-height: 1.1;
+}
+body.page1 .spx_pd-price-block .price-note,
+body.page1 .spx_pd-price-block .productbox-prices_netto,
+body.page1 .spx_pd-price-block small {
+    font-size: 12px;
+    color: var(--bauer-text-secondary);
+    font-weight: 400;
+}
+
+/* ---- "Auf Lager" stock badge (green) ---- */
+body.page1 .spx_pd__stock-block { margin: 10px 0 4px; }
+body.page1 .spx_pd__stock-block .delivery-status_box,
+body.page1 .spx_pd__stock-block .stock-info {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--bauer-green-30);
+    color: var(--bauer-text-primary);
+    border-radius: var(--bauer-radius-sm);
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1;
+}
+body.page1 .spx_pd__stock-block .delivery-status { gap: 8px; flex-wrap: wrap; }
+body.page1 .spx_pd__stock-block .ampel,
+body.page1 .spx_pd__stock-block .delivery-status_box::before { display: none; }
+
+/* ---- Spec box (free product attributes) ---- */
+body.page1 .bauer-pdp-specbox {
+    background: var(--bauer-bg-surface);
+    border-radius: var(--bauer-radius-sm);
+    padding: 12px 18px;
+    margin: 14px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+body.page1 .bauer-pdp-spec-row {
+    font-size: 16px;
+    line-height: 22px;
+    color: var(--bauer-text-secondary);
+}
+body.page1 .bauer-pdp-spec-label {
+    font-weight: 700;
+    color: var(--bauer-text-primary);
+}
+body.page1 .bauer-pdp-spec-value { font-weight: 400; }
+
+/* ---- Quantity stepper + Add-to-cart (core .basket / .product-buy) ---- */
+body.page1 .product-offer .input-group.choose_quantity,
+body.page1 .product-offer .slpx-form-counter {
+    background: var(--bauer-bg-surface);
+    border-radius: var(--bauer-radius-sm);
+    border: none;
+    overflow: hidden;
+    flex: 0 0 auto;
+}
+body.page1 .product-offer .form-control.quantity {
+    background: transparent;
+    border: none;
+    color: var(--bauer-text-primary);
+    box-shadow: none;
+    text-align: center;
+    width: 44px;
+}
+body.page1 .product-offer .slpx-form-counter button,
+body.page1 .product-offer .input-group-prepend button,
+body.page1 .product-offer .input-group-append button {
+    background: transparent;
+    border: none;
+    color: var(--bauer-text-primary);
+    box-shadow: none;
+}
+body.page1 .btn-add-to-cart,
+body.page1 .product-offer .btn-add-to-cart {
+    background: var(--bauer-red);
+    border: none;
+    border-radius: var(--bauer-radius-sm);
+    color: var(--bauer-white);
+    font-size: 18px;
+    font-weight: 400;
+    padding: 11px 26px;
+    line-height: 1.2;
+}
+body.page1 .btn-add-to-cart:hover { background: var(--bauer-red-hover); }
+/* row: qty (auto) + cart (grows) */
+body.page1 .product-offer .product-buy,
+body.page1 .product-offer .basket {
+    display: flex;
+    align-items: stretch;
+    gap: 12px;
+    margin: 0;
+}
+body.page1 .product-offer .product-buy .btn-add-to-cart,
+body.page1 .product-offer .basket .btn-add-to-cart { flex: 1 1 auto; }
+
+/* ---- B2B button ---- */
+body.page1 .bauer-pdp-b2b {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    margin-top: 14px;
+    padding: 12px 20px;
+    background: var(--bauer-bg-surface);
+    border-radius: var(--bauer-radius-sm);
+    color: var(--bauer-text-primary);
+    font-size: 16px;
+    text-decoration: none;
+    transition: background .15s ease;
+}
+body.page1 .bauer-pdp-b2b:hover { background: #262626; color: var(--bauer-text-primary); }
+
+/* ---- Trust row ---- */
+body.page1 .bauer-pdp-trust {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 22px;
+    margin-top: 18px;
+}
+body.page1 .bauer-pdp-trust-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    color: var(--bauer-text-secondary);
+}
+
+/* hide core action module clutter on PDP (share/compare/wishlist row stays subtle) */
+body.page1 .spx_pd__actions-module { margin-top: 18px; gap: 14px; }
+
+/* ---- Tabs / description (BESCHREIBUNG / VORTEILE / TECHNISCHER ÜBERBLICK) ---- */
+body.page1 .spx_pd__box-tabs,
+body.page1 .spx_pd__main-wrapper { max-width: var(--bauer-content-max); margin-left: auto; margin-right: auto; }
+
+/* tab navigation (Beschreibung / Bewertungen) on dark */
+body.page1 .tab-navigation,
+body.page1 .nav-tabs { background: transparent; border-bottom: 1px solid var(--bauer-border); }
+body.page1 .nav-tabs .nav-link {
+    background: transparent;
+    border: none;
+    color: var(--bauer-text-secondary);
+    font-family: var(--bauer-font-heading);
+    text-transform: uppercase;
+}
+body.page1 .nav-tabs .nav-link.active {
+    color: var(--bauer-red);
+    background: transparent;
+    border-bottom: 2px solid var(--bauer-red);
+}
+
+/* Hide the core attributes table below (PRODUKTINFORMATIONEN) — its data
+   already appears in the buy-box spec box, and the Figma lower area only
+   shows the description sections. */
+body.page1 .tab-content-section:has(.product-attributes) { display: none; }
+
+/* section title (red bar) + description body on dark */
+body.page1 .content-section-title,
+body.page1 .content-section-title.slpx-stylized { color: var(--bauer-text-primary); }
+/* the description pane already starts with our own "Beschreibung" heading,
+   so drop the core "PRODUKTBESCHREIBUNG" wrapper title (matches Figma) */
+body.page1 #tab-description > .content-section-title { display: none; }
+body.page1 .tab-content,
+body.page1 .tab-content-section,
+body.page1 .tab-pane { color: var(--bauer-text-secondary); }
+body.page1 .tab-content h2,
+body.page1 .tab-content h3 {
+    font-family: var(--bauer-font-heading);
+    color: var(--bauer-text-primary);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 20px;
+    margin: 24px 0 12px;
+    letter-spacing: .5px;
+}
+body.page1 .tab-content p,
+body.page1 .tab-content li { color: var(--bauer-text-secondary); line-height: 1.6; }
+body.page1 .tab-content ul { padding-left: 1.1rem; }
+
+/* ---- Related products row heading (uses bauer-product-card via item_box) ---- */
+body.page1 .spx_pd__box-recommendations { max-width: var(--bauer-content-max); margin-left: auto; margin-right: auto; }
+body.page1 .spx_pd__box-recommendations .slpx-slider-headline,
+body.page1 .spx_pd__box-recommendations h2 {
+    font-family: var(--bauer-font-heading);
+    color: var(--bauer-text-primary);
+    font-size: 28px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+/* ---- PDP responsive ---- */
+@media (max-width: 767px) {
+    /* keep buy-box content off the screen edges */
+    body.page1 #product-offer { padding-left: 16px; padding-right: 16px; }
+    body.page1 .slpx-standard-gallery-main-item-inner { padding: 12px; }
+    body.page1 .spx_pd-title { font-size: 24px; }
+    body.page1 .spx_pd-price-block .price,
+    body.page1 .spx_pd-price-block .price-regular { font-size: 24px; }
+    body.page1 .product-offer .product-buy,
+    body.page1 .product-offer .basket { flex-wrap: wrap; }
+    body.page1 .product-offer .btn-add-to-cart { width: 100%; flex: 1 1 100%; }
+    body.page1 .spx_pd__box-recommendations h2,
+    body.page1 .spx_pd__box-recommendations .slpx-slider-headline { font-size: 22px; }
+}
+
