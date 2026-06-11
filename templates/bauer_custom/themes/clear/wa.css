@@ -2010,3 +2010,157 @@ body.page2 .bauer-warum {
     overflow: hidden;
 }
 
+
+/* ============================================================
+   17. RESPONSIVE — homepage sections
+       Desktop (>=1200px) is the Figma design, untouched.
+       These rules only adjust tablet & mobile.
+   ============================================================ */
+
+/* ---- Small desktop / tablet landscape (<=1199px) ---- */
+@media (max-width: 1199px) {
+    .bauer-categories,
+    .bauer-products,
+    .bauer-pakete,
+    .bauer-loesungen,
+    .bauer-energiesystem,
+    .bauer-moegl,
+    .bauer-warum {
+        padding-left: 48px !important;
+        padding-right: 48px !important;
+    }
+    .bauer-hero-content { padding-left: 48px !important; padding-right: 24px; }
+    /* 3-col -> 2-col */
+    .bauer-moegl-grid { grid-template-columns: repeat(2, 1fr); }
+    /* wrap the fixed/equal flex rows */
+    /* Category icons become a horizontal slider below desktop */
+    .bauer-categories-grid {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        gap: 16px;
+    }
+    .bauer-categories-grid::-webkit-scrollbar { display: none; }
+    .bauer-cat-card {
+        flex: 0 0 150px !important;
+        width: 150px !important;
+        height: 150px !important;
+        scroll-snap-align: start;
+    }
+    .bauer-cat-icon { width: 64px !important; height: 64px !important; min-width: 64px; min-height: 64px; }
+    .bauer-pakete-cards,
+    .bauer-energiesystem-cards { flex-wrap: wrap; }
+    .bauer-pakete-card { flex: 0 0 calc(50% - 12px); }
+    .bauer-energie-card { flex: 0 0 calc(33.333% - 16px); }
+}
+
+/* ---- Tablet portrait (<=991px) ---- */
+@media (max-width: 991px) {
+    .bauer-hero { min-height: 560px; }
+    .bauer-hero-headline { font-size: 44px; max-width: 100%; }
+    .bauer-hero-subtext { max-width: 100%; }
+    .bauer-energie-card { flex: 0 0 calc(50% - 12px); }
+}
+
+/* ---- Mobile (<=767px) ---- */
+@media (max-width: 767px) {
+    .bauer-categories,
+    .bauer-products,
+    .bauer-pakete,
+    .bauer-loesungen,
+    .bauer-energiesystem,
+    .bauer-moegl,
+    .bauer-warum {
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+    }
+    .bauer-hero { min-height: 480px; }
+    .bauer-hero-content { padding-left: 16px !important; padding-right: 16px; }
+    .bauer-hero-headline { font-size: 30px; line-height: 1.2; }
+    .bauer-hero-subtext { font-size: 16px; }
+    .bauer-hero-cta { flex-wrap: wrap; gap: 10px; }
+
+    /* section headings */
+    .bauer-categories-heading,
+    .bauer-products-heading,
+    .bauer-pakete-heading,
+    .bauer-loesungen-heading,
+    .bauer-energiesystem-heading,
+    .bauer-moegl-heading,
+    .bauer-warum-heading { font-size: 24px; }
+
+    /* grids -> single column */
+    .bauer-loesungen-grid { grid-template-columns: 1fr; }
+    .bauer-moegl-grid { grid-template-columns: 1fr; }
+
+    /* Lösungen cards: keep image-left/text-right but make the image
+       proportional (~42%) instead of a fixed 290px that crushes the text */
+    .bauer-loesung-card { min-height: 0; }
+    .bauer-loesung-card-image {
+        flex: 0 0 42% !important;
+        width: 42% !important;
+        align-self: stretch;
+    }
+    .bauer-loesung-card-image img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover;
+        display: block;
+    }
+    .bauer-loesung-card-body { padding: 16px !important; }
+    .bauer-loesung-card-title { font-size: 18px; line-height: 1.25; }
+    .bauer-loesung-card-desc { font-size: 14px; }
+    .bauer-pakete-card { flex: 0 0 calc(50% - 12px); }
+
+    /* Energiesystem: horizontal slider on mobile (~2 cards + peek) */
+    .bauer-energiesystem-cards {
+        flex-wrap: nowrap !important;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+    .bauer-energiesystem-cards::-webkit-scrollbar { display: none; }
+    .bauer-energie-card {
+        flex: 0 0 44% !important;
+        scroll-snap-align: start;
+    }
+
+    /* category icons: 3 per row, smaller */
+    /* Mobile: slider shows exactly 3 cards at a time (Figma) */
+    .bauer-cat-card {
+        flex: 0 0 calc((100% - 32px) / 3) !important;
+        width: calc((100% - 32px) / 3) !important;
+        height: auto !important;
+        aspect-ratio: 1 / 1;
+        padding-top: 18px !important;
+        padding-bottom: 12px !important;
+        gap: 12px;
+    }
+    .bauer-cat-icon { width: 52px !important; height: 52px !important; min-width: 52px; min-height: 52px; }
+    .bauer-cat-label { font-size: 14px; }
+
+    /* USP row -> 2x2 grid (Figma mobile) */
+    .bauer-warum-cards {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 28px 16px;
+        padding: 24px;
+    }
+    .bauer-warum-card {
+        align-items: center;
+        text-align: center;
+    }
+}
+
+/* ---- Small mobile (<=479px) ---- */
+@media (max-width: 479px) {
+    .bauer-hero-headline { font-size: 26px; }
+    /* Pakete stays 2 cards per row even on small phones (Figma 2×2) */
+    .bauer-pakete-card { flex: 0 0 calc(50% - 12px); }
+    /* category slider stays 3-at-a-time (set in the <=767 rule) */
+    .bauer-hero-cta .bauer-hero-btn { width: 100%; justify-content: center; }
+}
+

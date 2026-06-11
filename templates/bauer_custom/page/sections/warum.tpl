@@ -1,14 +1,27 @@
 {* ============================================================
    WARUM BAUER PROTOOLS WÄHLEN? SECTION
    Figma: Frame 64 — diagonal stripe bg, 4 USP cards in dark row
+
+   Heading + the 4 benefit texts are editable in:
+     JTL Admin -> Ansicht -> Templates -> bauer_custom -> Settings
+     -> "Startseite: Vorteile (USP)".
+   Icons stay fixed for now (can be made editable later). Empty
+   text hides that card. Falls back to the original copy.
    ============================================================ *}
+{$uspHeading = $Einstellungen.template.hp_usp.heading|default:'Warum Bauer ProTools wählen?'}
+{$uspLabel1  = $Einstellungen.template.hp_usp.label1|default:'Original- und zertifizierte Produkte'}
+{$uspLabel2  = $Einstellungen.template.hp_usp.label2|default:'Schneller und zuverlässiger Versand'}
+{$uspLabel3  = $Einstellungen.template.hp_usp.label3|default:'Klare Lieferzeiten'}
+{$uspLabel4  = $Einstellungen.template.hp_usp.label4|default:'Für Profis entwickelt'}
+
 <section class="bauer-warum">
     <div class="bauer-warum-inner">
 
-        <h2 class="bauer-warum-heading">Warum Bauer ProTools wählen?</h2>
+        <h2 class="bauer-warum-heading">{$uspHeading}</h2>
 
         <div class="bauer-warum-cards">
 
+            {if $uspLabel1}
             <div class="bauer-warum-card">
                 <div class="bauer-warum-card-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
@@ -16,9 +29,11 @@
                         <path d="M12 15.9999L14.6667 18.6666L20 13.3333" stroke="#E2112F" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 </div>
-                <span class="bauer-warum-card-label">Original- und zertifizierte Produkte</span>
+                <span class="bauer-warum-card-label">{$uspLabel1}</span>
             </div>
+            {/if}
 
+            {if $uspLabel2}
             <div class="bauer-warum-card">
                 <div class="bauer-warum-card-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
@@ -26,9 +41,11 @@
                         <path d="M4.38666 9.33336L16 16L27.6133 9.33336M9.99999 5.69336L22 12.56" stroke="#E2112F" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 </div>
-                <span class="bauer-warum-card-label">Schneller und zuverlässiger Versand</span>
+                <span class="bauer-warum-card-label">{$uspLabel2}</span>
             </div>
+            {/if}
 
+            {if $uspLabel3}
             <div class="bauer-warum-card">
                 <div class="bauer-warum-card-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
@@ -36,9 +53,11 @@
                         <path d="M16 8V16L21.3333 18.6667" stroke="#E2112F" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 </div>
-                <span class="bauer-warum-card-label">Klare Lieferzeiten</span>
+                <span class="bauer-warum-card-label">{$uspLabel3}</span>
             </div>
+            {/if}
 
+            {if $uspLabel4}
             <div class="bauer-warum-card">
                 <div class="bauer-warum-card-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
@@ -46,8 +65,9 @@
                         <path d="M8 10.667C8 15.0823 11.5847 18.667 16 18.667C20.4153 18.667 24 15.0823 24 10.667C24 6.25167 20.4153 2.66699 16 2.66699C11.5847 2.66699 8 6.25167 8 10.667H8" stroke="#E2112F" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 </div>
-                <span class="bauer-warum-card-label">Für Profis entwickelt</span>
+                <span class="bauer-warum-card-label">{$uspLabel4}</span>
             </div>
+            {/if}
 
         </div>
 

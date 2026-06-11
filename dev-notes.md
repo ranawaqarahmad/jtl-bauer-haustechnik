@@ -163,3 +163,68 @@ See `/design-tokens.json` (to be populated once Figma MCP access is restored).
 - ALL changes go into `templates/bauer_custom/` only
 - Override TECHNIK templates by creating the same file path inside `bauer_custom/`
 - JTL child template system: bauer_custom file takes priority; falls back to TECHNIK
+
+
+## ============================================================
+## SERVER DEPLOYMENT CHECKLIST (SFTP)
+## ============================================================
+
+Deploy the whole `bauer_custom` template (homepage + category listing + all
+sections) to the live server. Do this carefully — activating a template changes
+the live storefront for real customers.
+
+### 0. Pre-flight (do this FIRST)
+- [ ] Deploy during low traffic if the shop is live.
+- [ ] BACK UP the server before changing anything:
+      - Server DB dump (mysqldump of the shop database).
+      - Copy of the server's current active `templates/<active>` folder.
+      - Note the CURRENT active template name (JTL Admin -> Ansicht -> Templates)
+        so you can roll back by re-activating it.
+- [ ] Confirm the server already has the PARENT template + plugins (it does, the
+      live site uses them): `templates/TECHNIK`, `templates/SALEPIX`,
+      `templates/NOVA`, and plugins "SALEPIX Templater" + "SALEPIX TECHNIK Downloader".
+      bauer_custom CANNOT work without TECHNIK (its parent).
+
+### 1. Upload via SFTP (.vscode/sftp.json is already configured)
+- [ ] Fill in host / username / password (or privateKeyPath) / remotePath in
+      `.vscode/sftp.json`. remotePath must end in `/templates/bauer_custom`.
+- [ ] Right-click the local `templates/bauer_custom` folder -> "SFTP: Upload Folder".
+- [ ] The sftp config only ever touches the `bauer_custom` folder, so server core,
+      config and DB are never overwritten.
+- [ ] DO NOT upload: `templates_c/`, `.git`, `.DS_Store`, `*.scss` (already ignored).
+- [ ] DO upload binaries: everything under `images/`, `fonts/`, `favicon/`.
+
+### 2. Activate the template (server JTL Admin)
+- [ ] JTL Admin -> Ansicht (View) -> Templates (or `your-domain/admin/shoptemplate.php`).
+- [ ] Select `bauer_custom` -> Activate / Save.
+- [ ] If it isn't listed: re-check the upload (template.xml must be present) and
+      that TECHNIK exists as parent.
+
+### 3. Clear cache + bust CSS cache (REQUIRED — or you'll see the old design)
+- [ ] JTL Admin -> System -> Cache -> "Cache leeren" (clears templates_c + Minify).
+- [ ] Bump the CSS cache-buster so browsers fetch the new clear.css:
+      Re-save the template settings in admin, OR run on the server DB:
+      UPDATE xplugin_salepix_templater_template_setting
+      SET value = value + 1
+      WHERE `group`='base' AND name='modification_counter';
+      (clear.css is served with a 1-YEAR browser cache — without this bump,
+       returning visitors keep the old stylesheet.)
+
+### 4. Verify on the live domain (hard-refresh: Cmd/Ctrl+Shift+R)
+- [ ] Homepage: hero, category icons, product sliders, pakete, USP sections render.
+- [ ] Any category page: full-width banner, dark product cards with green
+      "Auf Lager" badge, red "In den Warenkorb" button, USP section at bottom.
+- [ ] Add-to-cart works from a category card.
+- [ ] Check mobile + desktop widths.
+
+### Notes
+- The local-only test data (category "Werkzeuge", products 9001/9002) is NOT
+  uploaded and does not exist on the server — the design applies to the real
+  Wawi categories automatically.
+- Per-category banner image comes from JTL Admin -> Kategorien -> category image;
+  falls back to `images/category_banner.jpg` when none is set.
+- SALEPIX Templater visual editor is only needed for optional global color/font
+  tweaks. The full custom design lives in these template files and renders
+  without it. (It 404s on the LOCAL Docker due to an admin URL-rewrite quirk;
+  it works on the server.)
+- Rollback: re-activate the previous template in admin + clear cache.

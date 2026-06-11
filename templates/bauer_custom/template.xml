@@ -25,6 +25,132 @@
         <Section Name="Footer" Key="wa_footer">
             <Setting Description="Text" Key="text1" Type="text" Value="" />
         </Section>
+        <Section Name="Startseite: Hero" Key="hero">
+            <Setting Description="Badge / kleiner Text oben" Key="badge" Type="text" Value="Schneller Zugriff und schneller Einkauf" />
+            <Setting Description="Überschrift (Teil 1)" Key="headline" Type="text" Value="Werkzeuge kaufen ohne" />
+            <Setting Description="Überschrift (roter Teil)" Key="headline_red" Type="text" Value="Shop-Chaos" />
+            <Setting Description="Untertext" Key="subtext" Type="text" Value="Werkzeuge kaufen ohne Shop-Chaos" />
+            <Setting Description="Button 1: Text" Key="btn1_text" Type="text" Value="Schnellfinder" />
+            <Setting Description="Button 1: Link" Key="btn1_link" Type="text" Value="#schnellfinder" />
+            <Setting Description="Button 2: Text" Key="btn2_text" Type="text" Value="Wählen Sie System" />
+            <Setting Description="Button 2: Link" Key="btn2_link" Type="text" Value="#systeme" />
+            <Setting Description="Button 3: Text" Key="btn3_text" Type="text" Value="Kategorien durchsuchen" />
+            <Setting Description="Button 3: Link" Key="btn3_link" Type="text" Value="#kategorien" />
+            <Setting Description="Hintergrundbild" Key="bg_image" Type="upload" Value="hero-bg.jpg" maxFileSize="3000000" showPreview="true" allowedFileExtensions="['jpg','jpeg','png','webp']" accept="image/png, image/jpeg, image/webp" target="images/" targetFileName="hero-bg.jpg" />
+        </Section>
+        <Section Name="Startseite: Produkte-Slider" Key="hp_products">
+            <Setting Description="Überschrift" Key="heading" Type="text" Value="Schnell verfügbare Werkzeuge" />
+            <Setting Description="Kategorie-ID (Produkte aus dieser Kategorie anzeigen; leer = Platzhalter)" Key="category_id" Type="text" Value="" />
+            <Setting Description="Anzahl Produkte" Key="limit" Type="text" Value="8" />
+            <Setting Description="'Alle ansehen' Text" Key="viewall_text" Type="text" Value="Alle ansehen" />
+            <Setting Description="'Alle ansehen' Link" Key="viewall_link" Type="text" Value="#" />
+        </Section>
+        <Section Name="Startseite: Kategorie-Icons" Key="hp_cats">
+            <Setting Description="Überschrift" Key="heading" Type="text" Value="Direkt zu Ihren Werkzeugen" />
+            <Setting Description="Icon 1: Text (leer = ausblenden)" Key="cat1_label" Type="text" Value="Bohren" />
+            <Setting Description="Icon 1: Link" Key="cat1_link" Type="text" Value="#" />
+            <Setting Description="Icon 1: Bilddatei (in images/icons/)" Key="cat1_icon" Type="text" Value="Bohren.svg" />
+            <Setting Description="Icon 2: Text (leer = ausblenden)" Key="cat2_label" Type="text" Value="Schleifen" />
+            <Setting Description="Icon 2: Link" Key="cat2_link" Type="text" Value="#" />
+            <Setting Description="Icon 2: Bilddatei (in images/icons/)" Key="cat2_icon" Type="text" Value="Schleifen.svg" />
+            <Setting Description="Icon 3: Text (leer = ausblenden)" Key="cat3_label" Type="text" Value="Schneiden" />
+            <Setting Description="Icon 3: Link" Key="cat3_link" Type="text" Value="#" />
+            <Setting Description="Icon 3: Bilddatei (in images/icons/)" Key="cat3_icon" Type="text" Value="Schneiden.svg" />
+            <Setting Description="Icon 4: Text (leer = ausblenden)" Key="cat4_label" Type="text" Value="Reinigen" />
+            <Setting Description="Icon 4: Link" Key="cat4_link" Type="text" Value="#" />
+            <Setting Description="Icon 4: Bilddatei (in images/icons/)" Key="cat4_icon" Type="text" Value="Reinigen.svg" />
+            <Setting Description="Icon 5: Text (leer = ausblenden)" Key="cat5_label" Type="text" Value="Lagern" />
+            <Setting Description="Icon 5: Link" Key="cat5_link" Type="text" Value="#" />
+            <Setting Description="Icon 5: Bilddatei (in images/icons/)" Key="cat5_icon" Type="text" Value="Lagern.svg" />
+            <Setting Description="Icon 6: Text (leer = ausblenden)" Key="cat6_label" Type="text" Value="Zubehör" />
+            <Setting Description="Icon 6: Link" Key="cat6_link" Type="text" Value="#" />
+            <Setting Description="Icon 6: Bilddatei (in images/icons/)" Key="cat6_icon" Type="text" Value="Zubeh%C3%B6r.svg" />
+        </Section>
+        <Section Name="Startseite: Vorteile (USP)" Key="hp_usp">
+            <Setting Description="Überschrift" Key="heading" Type="text" Value="Warum Bauer ProTools wählen?" />
+            <Setting Description="Vorteil 1: Text (leer = ausblenden)" Key="label1" Type="text" Value="Original- und zertifizierte Produkte" />
+            <Setting Description="Vorteil 2: Text (leer = ausblenden)" Key="label2" Type="text" Value="Schneller und zuverlässiger Versand" />
+            <Setting Description="Vorteil 3: Text (leer = ausblenden)" Key="label3" Type="text" Value="Klare Lieferzeiten" />
+            <Setting Description="Vorteil 4: Text (leer = ausblenden)" Key="label4" Type="text" Value="Für Profis entwickelt" />
+        </Section>
+        <Section Name="Startseite: Pakete" Key="hp_pakete">
+            <Setting Description="Überschrift" Key="heading" Type="text" Value="Sparen Sie mehr mit cleveren Paketen." />
+            <Setting Description="'Alle ansehen' Text" Key="viewall_text" Type="text" Value="Alle ansehen" />
+            <Setting Description="'Alle ansehen' Link" Key="viewall_link" Type="text" Value="#" />
+            <Setting Description="Paket 1: Titel (leer = ausblenden)" Key="p1_title" Type="text" Value="Starterset mit Akku und Ladegerät" />
+            <Setting Description="Paket 1: Bilddatei (in images/)" Key="p1_image" Type="text" Value="image_1.png" />
+            <Setting Description="Paket 1: Link" Key="p1_link" Type="text" Value="#" />
+            <Setting Description="Paket 2: Titel (leer = ausblenden)" Key="p2_title" Type="text" Value="Aufbewahrungspaket für einen organisierten Workflow" />
+            <Setting Description="Paket 2: Bilddatei (in images/)" Key="p2_image" Type="text" Value="image_1.png" />
+            <Setting Description="Paket 2: Link" Key="p2_link" Type="text" Value="#" />
+            <Setting Description="Paket 3: Titel (leer = ausblenden)" Key="p3_title" Type="text" Value="Allround-Werkzeugpaket" />
+            <Setting Description="Paket 3: Bilddatei (in images/)" Key="p3_image" Type="text" Value="image_1.png" />
+            <Setting Description="Paket 3: Link" Key="p3_link" Type="text" Value="#" />
+            <Setting Description="Paket 4: Titel (leer = ausblenden)" Key="p4_title" Type="text" Value="Angebote für Arbeitskleidung für Profis" />
+            <Setting Description="Paket 4: Bilddatei (in images/)" Key="p4_image" Type="text" Value="image_1.png" />
+            <Setting Description="Paket 4: Link" Key="p4_link" Type="text" Value="#" />
+        </Section>
+        <Section Name="Startseite: Lösungen" Key="hp_loesungen">
+            <Setting Description="Überschrift" Key="heading" Type="text" Value="Fertige Lösungen für Ihre tägliche Arbeit" />
+            <Setting Description="Lösung 1: Titel (leer = ausblenden)" Key="l1_title" Type="text" Value="Elektro-Grundwerkzeugsatz" />
+            <Setting Description="Lösung 1: Beschreibung" Key="l1_desc" Type="text" Value="Alles was Sie für Elektroinstallationen brauchen — sorgfältig zusammengestellt für den täglichen Einsatz." />
+            <Setting Description="Lösung 1: Bilddatei (in images/)" Key="l1_image" Type="text" Value="image_1.png" />
+            <Setting Description="Lösung 1: Link" Key="l1_link" Type="text" Value="#" />
+            <Setting Description="Lösung 2: Titel (leer = ausblenden)" Key="l2_title" Type="text" Value="Lösung zum Metallschneiden" />
+            <Setting Description="Lösung 2: Beschreibung" Key="l2_desc" Type="text" Value="Präzise Schnitte in Stahl, Aluminium und Blechen — die richtigen Werkzeuge für saubere Ergebnisse." />
+            <Setting Description="Lösung 2: Bilddatei (in images/)" Key="l2_image" Type="text" Value="image_1.png" />
+            <Setting Description="Lösung 2: Link" Key="l2_link" Type="text" Value="#" />
+            <Setting Description="Lösung 3: Titel (leer = ausblenden)" Key="l3_title" Type="text" Value="Schnelle Montage" />
+            <Setting Description="Lösung 3: Beschreibung" Key="l3_desc" Type="text" Value="Effiziente Montagewerkzeuge für Installateure — weniger Aufwand, mehr Durchsatz auf der Baustelle." />
+            <Setting Description="Lösung 3: Bilddatei (in images/)" Key="l3_image" Type="text" Value="image_1.png" />
+            <Setting Description="Lösung 3: Link" Key="l3_link" Type="text" Value="#" />
+            <Setting Description="Lösung 4: Titel (leer = ausblenden)" Key="l4_title" Type="text" Value="SHK-Service-Kit" />
+            <Setting Description="Lösung 4: Beschreibung" Key="l4_desc" Type="text" Value="Komplett ausgestattetes Werkzeugset für Sanitär-, Heizungs- und Klimatechnik-Profis im Außeneinsatz." />
+            <Setting Description="Lösung 4: Bilddatei (in images/)" Key="l4_image" Type="text" Value="image_1.png" />
+            <Setting Description="Lösung 4: Link" Key="l4_link" Type="text" Value="#" />
+        </Section>
+        <Section Name="Startseite: Energiesystem" Key="hp_energie">
+            <Setting Description="Überschrift" Key="heading" Type="text" Value="Wählen Sie Ihr Energiesystem" />
+            <Setting Description="System 1: Titel (leer = ausblenden)" Key="e1_title" Type="text" Value="M12" />
+            <Setting Description="System 1: Untertitel" Key="e1_subtitle" Type="text" Value="M12 Kompaktsystem" />
+            <Setting Description="System 1: Link" Key="e1_link" Type="text" Value="#" />
+            <Setting Description="System 2: Titel (leer = ausblenden)" Key="e2_title" Type="text" Value="M18" />
+            <Setting Description="System 2: Untertitel" Key="e2_subtitle" Type="text" Value="M18 Allround-System" />
+            <Setting Description="System 2: Link" Key="e2_link" Type="text" Value="#" />
+            <Setting Description="System 3: Titel (leer = ausblenden)" Key="e3_title" Type="text" Value="MX FUEL" />
+            <Setting Description="System 3: Untertitel" Key="e3_subtitle" Type="text" Value="MX Fuel Hochleistungssystem" />
+            <Setting Description="System 3: Link" Key="e3_link" Type="text" Value="#" />
+            <Setting Description="System 4: Titel (leer = ausblenden)" Key="e4_title" Type="text" Value="BAT" />
+            <Setting Description="System 4: Untertitel" Key="e4_subtitle" Type="text" Value="Batterien" />
+            <Setting Description="System 4: Link" Key="e4_link" Type="text" Value="#" />
+            <Setting Description="System 5: Titel (leer = ausblenden)" Key="e5_title" Type="text" Value="CHG" />
+            <Setting Description="System 5: Untertitel" Key="e5_subtitle" Type="text" Value="Ladegeräte" />
+            <Setting Description="System 5: Link" Key="e5_link" Type="text" Value="#" />
+            <Setting Description="System 6: Titel (leer = ausblenden)" Key="e6_title" Type="text" Value="ONE-KEY" />
+            <Setting Description="System 6: Untertitel" Key="e6_subtitle" Type="text" Value="ONE-KEY-System" />
+            <Setting Description="System 6: Link" Key="e6_link" Type="text" Value="#" />
+        </Section>
+        <Section Name="Startseite: Möglichkeiten" Key="hp_moegl">
+            <Setting Description="Überschrift" Key="heading" Type="text" Value="Mehr Möglichkeiten zum Einkaufen und Zeitsparen" />
+            <Setting Description="Karte 1: Titel (leer = ausblenden)" Key="m1_title" Type="text" Value="B2B-Preise anfragen" />
+            <Setting Description="Karte 1: Beschreibung" Key="m1_desc" Type="text" Value="Profitieren Sie von individuellem Support und Nettopreisen für Ihr Unternehmen." />
+            <Setting Description="Karte 1: Link" Key="m1_link" Type="text" Value="#" />
+            <Setting Description="Karte 2: Titel (leer = ausblenden)" Key="m2_title" Type="text" Value="Schnellbestellung nach Artikelnummer" />
+            <Setting Description="Karte 2: Beschreibung" Key="m2_desc" Type="text" Value="Sie wissen schon, was Sie brauchen? Bestellen Sie sofort. Mit Artikelnummern." />
+            <Setting Description="Karte 2: Link" Key="m2_link" Type="text" Value="#" />
+            <Setting Description="Karte 3: Titel (leer = ausblenden)" Key="m3_title" Type="text" Value="Arbeitskleidung und Bekleidung" />
+            <Setting Description="Karte 3: Beschreibung" Key="m3_desc" Type="text" Value="Professionelle Bekleidung für anspruchsvolle Umgebungen." />
+            <Setting Description="Karte 3: Link" Key="m3_link" Type="text" Value="#" />
+            <Setting Description="Karte 4: Titel (leer = ausblenden)" Key="m4_title" Type="text" Value="Sicherheitsschuhe" />
+            <Setting Description="Karte 4: Beschreibung" Key="m4_desc" Type="text" Value="Zertifiziertes Schuhwerk, das Komfort und maximalen Schutz bietet." />
+            <Setting Description="Karte 4: Link" Key="m4_link" Type="text" Value="#" />
+            <Setting Description="Karte 5: Titel (leer = ausblenden)" Key="m5_title" Type="text" Value="Benutzerdefinierte Werkzeugsätze" />
+            <Setting Description="Karte 5: Beschreibung" Key="m5_desc" Type="text" Value="Konfigurieren Sie die Pakete genau so, wie Ihr Team sie benötigt." />
+            <Setting Description="Karte 5: Link" Key="m5_link" Type="text" Value="#" />
+            <Setting Description="Karte 6: Titel (leer = ausblenden)" Key="m6_title" Type="text" Value="Abholung und Support" />
+            <Setting Description="Karte 6: Beschreibung" Key="m6_desc" Type="text" Value="Abholung vor Ort und dedizierter technischer Service." />
+            <Setting Description="Karte 6: Link" Key="m6_link" Type="text" Value="#" />
+        </Section>
     </Settings>
     <Minify>
         <CSS Name="clear.css">
