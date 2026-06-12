@@ -79,3 +79,17 @@
         </div>
     {/if}
 {/block}
+
+{* --- Description as stacked sections (Figma) instead of the core tab UI ---
+   The core tabs component collapses its panes via JS, which fights any
+   CSS-only attempt to hide the tab bar. So we replace the whole tabs block
+   with the product description rendered directly. The client writes the
+   sections (Beschreibung / Wichtigste Vorteile / Technischer Überblick) as
+   headings + text in the normal product description field in Wawi. *}
+{block name='productdetails-details-include-tabs'}
+    {if $Artikel->cBeschreibung|strip_tags|trim}
+        <div class="bauer-pdp-description slpx-wrapper">
+            {$Artikel->cBeschreibung}
+        </div>
+    {/if}
+{/block}

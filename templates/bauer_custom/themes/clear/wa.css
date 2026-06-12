@@ -2188,6 +2188,31 @@ body.page1 .spx_pd__actions-module,
 body.page1 .spx_pd__actions-module a,
 body.page1 .spx_pd__actions-module button { color: var(--bauer-text-primary); }
 
+/* ---- Breadcrumb (Figma: "Startseite / Werkzeuge / Produkt", last red) ---- */
+/* drop the "Zurück" back-to-list link and the prev/next product arrows */
+body.page1 #breadcrumb .breadcrumb-backtolist,
+body.page1 .container-breadcrumbs .navigation-arrows { display: none !important; }
+/* slash separators instead of the core chevron svg */
+body.page1 #breadcrumb .breadcrumb-item:not(.last)::after {
+    content: "/";
+    background: none !important;
+    width: auto;
+    height: auto;
+    margin: 0 8px;
+    padding: 0;
+    color: var(--bauer-text-secondary);
+    font-size: 14px;
+    line-height: 1;
+}
+body.page1 #breadcrumb .breadcrumb-item::before { content: none !important; padding: 0 !important; }
+body.page1 #breadcrumb .breadcrumb-link {
+    color: var(--bauer-text-secondary);
+    font-size: 14px;
+    text-decoration: none;
+}
+body.page1 #breadcrumb .breadcrumb-link:hover { color: var(--bauer-text-primary); }
+body.page1 #breadcrumb .breadcrumb-item.active .breadcrumb-link { color: var(--bauer-red); }
+
 /* ---- Top section: content width + 2 columns (gallery | buy box) ---- */
 body.page1 #product-offer.row {
     max-width: var(--bauer-content-max);
@@ -2221,18 +2246,33 @@ body.page1 #product-offer .spx_pd-info {
 
 /* ---- Gallery ---- */
 body.page1 .slpx-standard-gallery { gap: 20px; }
-@media (min-width: 992px) {
-    body.page1 .slpx-standard-gallery {
-        flex-direction: row !important;   /* thumbnails left, main right */
-    }
-}
-body.page1 .slpx-standard-gallery-main,
-body.page1 .gallery-with-action {
+/* main image: dark frame, NO light border (Figma has no white frame) */
+body.page1 .slpx-standard-gallery-main {
     background: var(--bauer-bg-surface);
+    border: none !important;
     border-radius: var(--bauer-radius-md);
     overflow: hidden;
 }
-body.page1 .slpx-standard-gallery-main-item-inner { padding: 24px; }
+body.page1 .gallery-with-action { background: transparent; }
+body.page1 .slpx-standard-gallery-main-item-inner { padding: 0; }
+/* image fills the frame */
+body.page1 .slpx-standard-gallery img.js-main-image,
+body.page1 .slpx-standard-gallery-main-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+/* thumbnails: dark border, red when active (no white frame) */
+body.page1 .slpx-standard-gallery-thumb-item-inner {
+    border: 1px solid var(--bauer-border) !important;
+    background: var(--bauer-bg-surface);
+    border-radius: var(--bauer-radius-sm);
+}
+body.page1 .slpx-standard-gallery-thumb-item:hover .slpx-standard-gallery-thumb-item-inner,
+body.page1 .slpx-standard-gallery-thumb-item.is-active .slpx-standard-gallery-thumb-item-inner {
+    border-color: var(--bauer-red) !important;
+}
 
 /* ---- Buy box: stack + Figma order ---- */
 body.page1 .spx_pd-info-inner {
@@ -2254,11 +2294,22 @@ body.page1 .spx_pd-info-essential {
 body.page1 .spx_pd-info-essential .product-sku { display: none; }
 body.page1 .spx_pd-info-essential .essential-items { display: none; }
 
-/* rating stars + count */
-body.page1 .product-rating-wrapper .ml-2 {
+/* rating: gold stars + small grey "(4.8 / N Bewertungen)" count (Figma) */
+body.page1 .spx_pd-rating-wrapper { align-items: center; gap: 8px; }
+body.page1 .spx_pd-rating-wrapper .slpx-icon-star {
+    color: #FFD208 !important;   /* gold instead of red */
+    width: 13px !important;
+    height: 13px !important;
+}
+body.page1 .spx_pd-rating-wrapper .ml-2 {
+    margin-left: 0 !important;
     color: var(--bauer-text-secondary);
     font-size: 12px;
+    font-weight: 400;
 }
+/* wrap the count in parentheses like Figma "(4.8 / 3 Bewertungen)" */
+body.page1 .spx_pd-rating-wrapper .ml-2::before { content: "("; }
+body.page1 .spx_pd-rating-wrapper .ml-2::after  { content: ")"; }
 
 /* ---- Title + subtitle + delivery badge ---- */
 body.page1 .spx_pd-headline { margin-bottom: 4px; }
@@ -2328,23 +2379,36 @@ body.page1 .spx_pd-price-block small {
     font-weight: 400;
 }
 
-/* ---- "Auf Lager" stock badge (green) ---- */
-body.page1 .spx_pd__stock-block { margin: 10px 0 4px; }
-body.page1 .spx_pd__stock-block .delivery-status_box,
-body.page1 .spx_pd__stock-block .stock-info {
+/* ---- "Auf Lager" stock badge (Figma: compact green pill + check icon) ---- */
+body.page1 .spx_pd__stock-block { margin: 12px 0 4px; }
+body.page1 .spx_pd__stock-block .delivery-status { display: block; }
+body.page1 .spx_pd__stock-block .delivery-status_box { background: none; padding: 0; display: block; }
+/* the green pill = the .status element */
+body.page1 .spx_pd__stock-block .status {
     display: inline-flex;
     align-items: center;
     gap: 6px;
     background: var(--bauer-green-30);
-    color: var(--bauer-text-primary);
+    color: var(--bauer-green);
     border-radius: var(--bauer-radius-sm);
-    padding: 6px 12px;
+    padding: 6px 12px 5px;
     font-size: 14px;
     line-height: 1;
+    font-weight: 600;
 }
-body.page1 .spx_pd__stock-block .delivery-status { gap: 8px; flex-wrap: wrap; }
-body.page1 .spx_pd__stock-block .ampel,
-body.page1 .spx_pd__stock-block .delivery-status_box::before { display: none; }
+/* swap the round status dot for a green check icon */
+body.page1 .spx_pd__stock-block .status::before {
+    width: 14px;
+    height: 14px;
+    margin: 0;
+    border-radius: 0;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 14 14' fill='none'%3E%3Cpath d='M11.6673 3.5L5.25065 9.91667L2.33398 7' stroke='%2310B981' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center / contain;
+}
+/* show "Auf Lager" (matches Figma + the listing cards) when in stock */
+body.page1 .spx_pd__stock-block .status.status-2 span { font-size: 0; }
+body.page1 .spx_pd__stock-block .status.status-2 span::after { content: "Auf Lager"; font-size: 14px; }
+/* hide the redundant "Lieferzeit: …" line — delivery is shown as the badge near the title */
+body.page1 .spx_pd__stock-block .estimated-delivery { display: none; }
 
 /* ---- Spec box (free product attributes) ---- */
 body.page1 .bauer-pdp-specbox {
@@ -2398,12 +2462,26 @@ body.page1 .product-offer .btn-add-to-cart {
     border: none;
     border-radius: var(--bauer-radius-sm);
     color: var(--bauer-white);
+    font-family: var(--bauer-font-body);   /* not the condensed uppercase font */
     font-size: 18px;
     font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
     padding: 11px 26px;
     line-height: 1.2;
 }
 body.page1 .btn-add-to-cart:hover { background: var(--bauer-red-hover); }
+/* Figma: text + arrow only — no price inside the button */
+body.page1 .btn-add-to-cart .slpx-add-cart-btn-price { display: none !important; }
+/* right-arrow after the label */
+body.page1 .btn-add-to-cart::after {
+    content: "";
+    width: 16px;
+    height: 16px;
+    flex: 0 0 16px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M3 8H13M13 8L9 4M13 8L9 12' stroke='white' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center / contain;
+}
+@media (max-width: 991px) { body.page1 .btn-add-to-cart::after { display: none; } }
 /* row: qty (auto) + cart (grows) */
 body.page1 .product-offer .product-buy,
 body.page1 .product-offer .basket {
@@ -2448,80 +2526,110 @@ body.page1 .bauer-pdp-trust-item {
     color: var(--bauer-text-secondary);
 }
 
-/* hide core action module clutter on PDP (share/compare/wishlist row stays subtle) */
-body.page1 .spx_pd__actions-module { margin-top: 18px; gap: 14px; }
+/* Figma has no Vergleichsliste / Teilen / Merken / Frage zum Artikel buttons —
+   hide the whole action-button module (all four live inside it) */
+body.page1 .spx_pd__actions-module { display: none !important; }
 
-/* ---- Tabs / description (BESCHREIBUNG / VORTEILE / TECHNISCHER ÜBERBLICK) ---- */
-body.page1 .spx_pd__box-tabs,
-body.page1 .spx_pd__main-wrapper { max-width: var(--bauer-content-max); margin-left: auto; margin-right: auto; }
-
-/* tab navigation (Beschreibung / Bewertungen) on dark */
-body.page1 .tab-navigation,
-body.page1 .nav-tabs { background: transparent; border-bottom: 1px solid var(--bauer-border); }
-body.page1 .nav-tabs .nav-link {
-    background: transparent;
-    border: none;
+/* ---- Description: stacked sections (BESCHREIBUNG / WICHTIGSTE VORTEILE /
+       TECHNISCHER ÜBERBLICK). The core tab UI is replaced in details.tpl by
+       .bauer-pdp-description rendering the product description directly. ---- */
+body.page1 .bauer-pdp-description {
+    max-width: var(--bauer-content-max);
+    margin: 24px auto 0;
     color: var(--bauer-text-secondary);
-    font-family: var(--bauer-font-heading);
-    text-transform: uppercase;
 }
-body.page1 .nav-tabs .nav-link.active {
-    color: var(--bauer-red);
-    background: transparent;
-    border-bottom: 2px solid var(--bauer-red);
-}
-
-/* Hide the core attributes table below (PRODUKTINFORMATIONEN) — its data
-   already appears in the buy-box spec box, and the Figma lower area only
-   shows the description sections. */
-body.page1 .tab-content-section:has(.product-attributes) { display: none; }
-
-/* section title (red bar) + description body on dark */
-body.page1 .content-section-title,
-body.page1 .content-section-title.slpx-stylized { color: var(--bauer-text-primary); }
-/* the description pane already starts with our own "Beschreibung" heading,
-   so drop the core "PRODUKTBESCHREIBUNG" wrapper title (matches Figma) */
-body.page1 #tab-description > .content-section-title { display: none; }
-body.page1 .tab-content,
-body.page1 .tab-content-section,
-body.page1 .tab-pane { color: var(--bauer-text-secondary); }
-body.page1 .tab-content h2,
-body.page1 .tab-content h3 {
+body.page1 .bauer-pdp-description h2,
+body.page1 .bauer-pdp-description h3 {
     font-family: var(--bauer-font-heading);
     color: var(--bauer-text-primary);
     font-weight: 700;
     text-transform: uppercase;
     font-size: 20px;
-    margin: 24px 0 12px;
+    margin: 32px 0 12px;
     letter-spacing: .5px;
 }
-body.page1 .tab-content p,
-body.page1 .tab-content li { color: var(--bauer-text-secondary); line-height: 1.6; }
-body.page1 .tab-content ul { padding-left: 1.1rem; }
+body.page1 .bauer-pdp-description > h2:first-child,
+body.page1 .bauer-pdp-description > h3:first-child { margin-top: 0; }
+body.page1 .bauer-pdp-description p { color: var(--bauer-text-secondary); line-height: 1.6; margin-bottom: 1rem; }
+body.page1 .bauer-pdp-description ul { padding-left: 1.1rem; list-style: disc; }
+body.page1 .bauer-pdp-description li { color: var(--bauer-text-secondary); line-height: 1.6; margin-bottom: 4px; }
 
-/* ---- Related products row heading (uses bauer-product-card via item_box) ---- */
+/* ---- Related products: "Das könnte Sie auch interessieren" ---- */
 body.page1 .spx_pd__box-recommendations { max-width: var(--bauer-content-max); margin-left: auto; margin-right: auto; }
-body.page1 .spx_pd__box-recommendations .slpx-slider-headline,
-body.page1 .spx_pd__box-recommendations h2 {
+/* centered, normal-case heading (the headline is a flex row, so center via
+   justify-content; SALEPIX uppercases it — turn that off on it and children) */
+body.page1 .spx_pd__box-recommendations .slpx-slider-headline {
+    display: flex !important;
+    justify-content: center;
     font-family: var(--bauer-font-heading);
     color: var(--bauer-text-primary);
-    font-size: 28px;
+    font-size: 32px;
     font-weight: 700;
     text-align: center;
-    margin-bottom: 24px;
+    margin-bottom: 28px;
 }
+body.page1 .spx_pd__box-recommendations .slpx-slider-headline,
+body.page1 .spx_pd__box-recommendations .slpx-slider-headline * {
+    text-transform: none !important;
+}
+/* equal-height cards with the button pinned to the bottom (Figma) */
+/* gap between cards: inset the card inside each slide (border-box keeps the
+   slide width swiper calculated, so the carousel still works) */
+body.page1 .spx_pd__box-recommendations .swiper-slide {
+    height: auto;
+    box-sizing: border-box;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+body.page1 .spx_pd__box-recommendations .bauer-product-card {
+    height: 100%;
+    /* fill the padded slide instead of the fixed 282px width, so the 10px
+       slide padding on each side actually creates a visible gap between cards */
+    width: 100% !important;
+    flex: 1 1 auto !important;
+    display: flex;
+    flex-direction: column;
+}
+body.page1 .spx_pd__box-recommendations .bauer-product-card .bauer-product-btn,
+body.page1 .spx_pd__box-recommendations .bauer-product-card form { margin-top: auto; }
 
 /* ---- PDP responsive ---- */
 @media (max-width: 767px) {
+    /* Header search is a flex child that wouldn't shrink (text input has an
+       intrinsic min-width), widening the body on narrow screens. min-width:0
+       lets it shrink to the viewport. (Global header fix, mobile only.) */
+    .slpx-search-form,
+    .slpx-search-form .form-control,
+    .slpx-search-form input { min-width: 0; }
+    /* guard against any residual horizontal overflow on the PDP content
+       (clip, not hidden — keeps sticky working and avoids layout glitches) */
+    body.page1 #content-wrapper { overflow-x: clip; }
+    /* flex children default to min-width:auto and won't shrink below their
+       content — that let the gallery column push the buy box wider than the
+       screen. min-width:0 lets the columns shrink to the viewport. */
+    body.page1 #product-offer,
+    body.page1 #product-offer > *,
+    body.page1 .product-gallery,
+    body.page1 .spx_pd-info,
+    body.page1 .spx_pd-info-inner,
+    body.page1 .spx_pd-headline,
+    body.page1 .slpx-standard-gallery,
+    body.page1 .slpx-standard-gallery .swiper,
+    body.page1 .bauer-pdp-specbox { min-width: 0; max-width: 100%; }
+    body.page1 .bauer-pdp-spec-row,
+    body.page1 .bauer-pdp-subtitle,
+    body.page1 .spx_pd-title { overflow-wrap: anywhere; }
     /* keep buy-box content off the screen edges */
     body.page1 #product-offer { padding-left: 16px; padding-right: 16px; }
-    body.page1 .slpx-standard-gallery-main-item-inner { padding: 12px; }
+    body.page1 .slpx-standard-gallery-main-item-inner { padding: 0; }
     body.page1 .spx_pd-title { font-size: 24px; }
     body.page1 .spx_pd-price-block .price,
     body.page1 .spx_pd-price-block .price-regular { font-size: 24px; }
     body.page1 .product-offer .product-buy,
     body.page1 .product-offer .basket { flex-wrap: wrap; }
     body.page1 .product-offer .btn-add-to-cart { width: 100%; flex: 1 1 100%; }
+    /* description: padding + safe wrapping for long words/URLs */
+    body.page1 .bauer-pdp-description { padding-left: 16px; padding-right: 16px; overflow-wrap: anywhere; }
     body.page1 .spx_pd__box-recommendations h2,
     body.page1 .spx_pd__box-recommendations .slpx-slider-headline { font-size: 22px; }
 }
